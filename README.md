@@ -4,7 +4,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ### development log
 
-* `2020-06-12` - follow [ultralytics](https://github.com/ultralytics/yolov5) to design scaled YOLOv4. [`yolov4-pacsp-s`]() [`yolov4-pacsp-m`]() [`yolov4-pacsp-l`]() [`yolov4-pacsp-x`]()
+* `2020-06-12` - design scaled YOLOv4 follow [ultralytics](https://github.com/ultralytics/yolov5). [`yolov4-pacsp-s`]() [`yolov4-pacsp-m`]() [`yolov4-pacsp-l`]() [`yolov4-pacsp-x`]()
 * `2020-06-07` - design scaling methods for CSP-based models. [`yolov4-pacsp-25`]() [`yolov4-pacsp-75`]()
 * `2020-06-03` - update COCO2014 to COCO2017.
 * `2020-05-30` - update FPN neck to CSPFPN. [`yolov4-yocsp`]() [`yolov4-yocsp-mish`]()
