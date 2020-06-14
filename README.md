@@ -4,6 +4,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ### development log
 
+* `2020-06-14` - convert .pt to .weights for darknet fine-tuning.
+* `2020-06-13` - update multi-scale training strategy.
 * `2020-06-12` - design scaled YOLOv4 follow [ultralytics](https://github.com/ultralytics/yolov5). [`yolov4-pacsp-s`]() [`yolov4-pacsp-m`]() [`yolov4-pacsp-l`]() [`yolov4-pacsp-x`]()
 * `2020-06-07` - design scaling methods for CSP-based models. [`yolov4-pacsp-25`]() [`yolov4-pacsp-75`]()
 * `2020-06-03` - update COCO2014 to COCO2017.
@@ -15,23 +17,26 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ## Pretrained Models & Comparison
 
-| Model | Size | AP<sup>val</sup> | AP<sup>test</sup> | Batch 32 FPS | cfg | weights |
-| :-- | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **YOLOv4**<sub>pacsp-mish</sub> | 608 | (45.9%) | (45.7%) | 104 | [cfg]() | [weights]() |
-| **YOLOv4**<sub>paspp-mish</sub> | 608 | (45.0%) | (44.9%) |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yocsp-mish</sub> | 608 | (44.7%) | (44.5%) |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yospp-mish</sub> | 608 | (44.3%) | (44.1%) |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>pacsp</sub> | 608 | 45.4% | 45.2% | 125 | [cfg]() | [weights]() |
-| **YOLOv4**<sub>paspp</sub> | 608 | 44.4% | 44.6% |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yocsp</sub> | 608 | 44.3% | 44.2% |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yospp</sub> | 608 | 43.9% | 43.6% |  | [cfg]() | [weights]() |
-|  |  |  |  |  |  |  |
-| **YOLOv5**<sub>s</sub> | 736 | 35.5 | 35.5 | 223 | - | - |
-| **YOLOv5**<sub>m</sub> | 736 | 42.7 | 42.7 | 150 | - | - |
-| **YOLOv5**<sub>l</sub> | 736 | 45.7 | 45.9 | 98 | - | - |
-| **YOLOv5**<sub>x</sub> | 736 | 47.2 | 47.3 | 59 | - | - |
+| Model | Train Size | Test Size | AP<sup>val</sup> | AP<sup>test</sup> | Batch 32 FPS | cfg | weights |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: |  :-: | 
+| **YOLOv4**<sub>pacsp-mish</sub> | 512 | 608 | (45.9%) | (45.7%) | 104 | [cfg]() | [weights]() |
+| **YOLOv4**<sub>paspp-mish</sub> | 512 | 608 | (45.0%) | (44.9%) |  | [cfg]() | [weights]() |
+| **YOLOv4**<sub>yocsp-mish</sub> | 512 | 608 | (44.7%) | (44.5%) |  | [cfg]() | [weights]() |
+| **YOLOv4**<sub>yospp-mish</sub> | 512 | 608 | (44.3%) | (44.1%) |  | [cfg]() | [weights]() |
+| **YOLOv4**<sub>pacsp</sub> | 512 | 608 | 45.4% | 45.2% | 125 | [cfg]() | [weights]() |
+| **YOLOv4**<sub>paspp</sub> | 512 | 608 | 44.4% | 44.6% |  | [cfg]() | [weights]() |
+| **YOLOv4**<sub>yocsp</sub> | 512 | 608 | 44.3% | 44.2% |  | [cfg]() | [weights]() |
+| **YOLOv4**<sub>yospp</sub> | 512 | 608 | 43.9% | 43.6% |  | [cfg]() | [weights]() |
+|  |  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp</sub> | 640 | 608 | 45.7%<sup>1</sup> |  | 125 | [cfg]() | [weights]() |
+|  |  |  |  |  |  |  |  |
+| **YOLOv5**<sub>s</sub> | 640 | 736 | 35.5 | 35.5 | 223 | - | - |
+| **YOLOv5**<sub>m</sub> | 640 | 736 | 42.7 | 42.7 | 150 | - | - |
+| **YOLOv5**<sub>l</sub> | 640 | 736 | 45.7 | 45.9 | 98 | - | - |
+| **YOLOv5**<sub>x</sub> | 640 | 736 | 47.2 | 47.3 | 59 | - | - |
 * (%) means trained on COCO2014.
 * FPS is tested on Tesla V100 including pre-processing, FP32 model inference, and post-processing. 
+* <sup>1</sup> server crach, it is temporally results from the model trained 220/300 epochs.
 
 ## Requirements
 
