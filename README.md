@@ -4,6 +4,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ### development log
 
+* `2020-06-16` - support floating16 of GPU inference.
 * `2020-06-14` - convert .pt to .weights for darknet fine-tuning.
 * `2020-06-13` - update multi-scale training strategy.
 * `2020-06-12` - design scaled YOLOv4 follow [ultralytics](https://github.com/ultralytics/yolov5). [`yolov4-pacsp-s`]() [`yolov4-pacsp-m`]() [`yolov4-pacsp-l`]() [`yolov4-pacsp-x`]()
@@ -17,7 +18,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ## Pretrained Models & Comparison
 
-| Model | Train Size | Test Size | AP<sup>val</sup> | AP<sup>test</sup> | Batch 32 FPS | cfg | weights |
+| Model | Train Size | Test Size | AP<sup>val</sup> | AP<sup>test</sup> | Batch 32 FPS (FP32) | cfg | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: |  :-: | 
 | **YOLOv4**<sub>pacsp-mish</sub> | 512 | 608 | (45.9%) | (45.7%) | 104 | [cfg]() | [weights]() |
 | **YOLOv4**<sub>paspp-mish</sub> | 512 | 608 | (45.0%) | (44.9%) |  | [cfg]() | [weights]() |
@@ -35,8 +36,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv5**<sub>l</sub> | 640 | 736 | 45.7 | 45.9 | 98 | - | - |
 | **YOLOv5**<sub>x</sub> | 640 | 736 | 47.2 | 47.3 | 59 | - | - |
 * (%) means trained on COCO2014.
-* FPS is tested on Tesla V100 including pre-processing, FP32 model inference, and post-processing. 
-* <sup>1</sup> server crach, it is temporally results from the model trained 220/300 epochs.
+* FPS is tested on Tesla V100 including pre-processing, model inference, and post-processing. 
+* <sup>1</sup> server crach, it is temporally results from the model trained 240/300 epochs.
 
 ## Requirements
 
