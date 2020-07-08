@@ -24,9 +24,9 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | yaml | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **YOLOv4**<sub>pacsp-s</sub> | 736 | 38.9% | 58.0% | 42.1% | 22.3% | 44.0% | 49.3% | [yaml]() | [weights]() |
-| **YOLOv4**<sub>pacsp</sub> | 736 | 46.9% | 66.0% | 51.2% | 29.7% | 52.7% | 59.6% | [yaml]() | [weights]() |
-| **YOLOv4**<sub>pacsp-x</sub> | 736 | **48.6%** | **67.3%** | **53.2%** | **32.1%** | **54.0%** | **62.2%** | [yaml]() | [weights]() |
+| **YOLOv4**<sub>pacsp-s</sub> | 736 | 38.9% | 58.0% | 42.1% | 22.3% | 44.0% | 49.3% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_preview/models/yolov4-pacsp-s.yaml) | [weights](https://drive.google.com/file/d/1Nvob6TV1mOUlPcsZpldp0LbjodIy4GHB/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp</sub> | 736 | 46.9% | 66.0% | 51.2% | 29.7% | 52.7% | 59.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_preview/models/yolov4-pacsp.yaml) | [weights](https://drive.google.com/file/d/1I2EM5_IatwP9CPib2x8irRd1ZDYKEK6B/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-x</sub> | 736 | **48.6%** | **67.3%** | **53.2%** | **32.1%** | **54.0%** | **62.2%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_preview/models/yolov4-pacsp-x.yaml) | [weights](https://drive.google.com/file/d/10PkvKdxCu1dLLOqkg_euL6rBvr2q3dZU/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 
 ## Requirements
