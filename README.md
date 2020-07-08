@@ -1,6 +1,10 @@
 # YOLOv4
 
-This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) which is based on [ultralytics/yolov3](https://github.com/ultralytics/yolov3).
+This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) which is based on [ultralytics/yolov5](https://github.com/ultralytics/yolov5).
+
+* [[original Darknet implementation of YOLOv4]](https://github.com/AlexeyAB/darknet)
+
+* [[ultralytics/yolov3 based PyTorch implementation of YOLOv4]](https://github.com/WongKinYiu/PyTorch_YOLOv4).
 
 ### development log
 
@@ -18,26 +22,12 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ## Pretrained Models & Comparison
 
-| Model | Train Size | Test Size | AP<sup>val</sup> | AP<sup>test</sup> | Batch 32 FPS (FP32) | cfg | weights |
-| :-- | :-: | :-: | :-: | :-: | :-: | :-: |  :-: | 
-| **YOLOv4**<sub>pacsp-mish</sub> | 512 | 608 | (45.9%) | (45.7%) | 104 | [cfg]() | [weights]() |
-| **YOLOv4**<sub>paspp-mish</sub> | 512 | 608 | (45.0%) | (44.9%) |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yocsp-mish</sub> | 512 | 608 | (44.7%) | (44.5%) |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yospp-mish</sub> | 512 | 608 | (44.3%) | (44.1%) |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>pacsp</sub> | 512 | 608 | 45.4% | 45.2% | 125 | [cfg]() | [weights]() |
-| **YOLOv4**<sub>paspp</sub> | 512 | 608 | 44.4% | 44.6% |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yocsp</sub> | 512 | 608 | 44.3% | 44.2% |  | [cfg]() | [weights]() |
-| **YOLOv4**<sub>yospp</sub> | 512 | 608 | 43.9% | 43.6% |  | [cfg]() | [weights]() |
-|  |  |  |  |  |  |  |  |
-| **YOLOv4**<sub>pacsp</sub> | 640 | 608 | 45.7%<sup>1</sup> |  | 125 | [cfg]() | [weights]() |
-|  |  |  |  |  |  |  |  |
-| **YOLOv5**<sub>s</sub> | 640 | 736 | 35.5 | 35.5 | 223 | - | - |
-| **YOLOv5**<sub>m</sub> | 640 | 736 | 42.7 | 42.7 | 150 | - | - |
-| **YOLOv5**<sub>l</sub> | 640 | 736 | 45.7 | 45.9 | 98 | - | - |
-| **YOLOv5**<sub>x</sub> | 640 | 736 | 47.2 | 47.3 | 59 | - | - |
-* (%) means trained on COCO2014.
-* FPS is tested on Tesla V100 including pre-processing, model inference, and post-processing. 
-* <sup>1</sup> server crach, it is temporally results from the model trained 240/300 epochs.
+| Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | yaml | weights |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
+| **YOLOv4**<sub>pacsp-s</sub> | 736 | 38.9% | 58.0% | 42.1% | 22.3% | 44.0% | 49.3% | [yaml]() | [weights]() |
+| **YOLOv4**<sub>pacsp</sub> | 736 | 46.9% | 66.0% | 51.2% | 29.7% | 52.7% | 59.6% | [yaml]() | [weights]() |
+| **YOLOv4**<sub>pacsp-x</sub> | 736 | **48.6%** | **67.3%** | **53.2%** | **32.1%** | **54.0%** | **62.2%** | [yaml]() | [weights]() |
+|  |  |  |  |  |  |  |
 
 ## Requirements
 
@@ -48,13 +38,13 @@ pip install -r requirements.txt
 ## Training
 
 ```
-python train.py --data coco2017.data --cfg yolov4.cfg --weights '' --name yolov4 --img 448 768 512 --batch 16 --device 0
+python train.py --data coco.yaml --cfg yolov4-pacsp.yaml --weights ''
 ```
 
 ## Testing
 
 ```
-python test.py --data coco2017.data --cfg yolov4.cfg --weights yolov4.pt --img 608 --iou-thr 0.7 --batch-size 32 --device 0
+python test.py --img 736 --conf 0.001 --batch 8 --data coco.yaml --weights weights/yolov4-pacsp.pt
 ```
 
 ## Citation
