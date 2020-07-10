@@ -26,10 +26,9 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
 | **YOLOv4**<sub>paspp</sub> | 736 | 45.7% | 64.2% | 50.3% | 27.4% | 51.3% | 58.6% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-paspp.cfg) | [weights](https://drive.google.com/file/d/1FraA4vmlBh5RoQB7ZGVc01UyCgxSlbpO/view?usp=sharing) |
 | **YOLOv4**<sub>pacsp-s</sub> | 736 | 36.0% | 54.2% | 39.4% | 18.7% | 41.2% | 48.0% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s.cfg) | [weights](https://drive.google.com/file/d/1saE6CEvNDPA_Xv34RdxYT4BbCtozuTta/view?usp=sharing) |
-| **YOLOv4**<sub>pacsp</sub> | 736 | **46.4%** | **64.8%** | **51.0%** | **28.5%** | **51.9%** | **59.5%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp.cfg) | [weights](https://drive.google.com/file/d/1SPCjPnMgA8jlfIGsAnFsMPdJU8dJeo7E/view?usp=sharing) |
-| **YOLOv4**<sub>pacsp-x</sub> | 736 | % | % | % | % | % | % | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp</sub> | 736 | 46.4% | 64.8% | 51.0% | 28.5% | 51.9% | 59.5% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp.cfg) | [weights](https://drive.google.com/file/d/1SPCjPnMgA8jlfIGsAnFsMPdJU8dJeo7E/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-x</sub> | 736 | **47.6%** | **66.1%** | **52.2%** | **29.9%** | **53.3%** | **61.5%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x.cfg) | [weights](https://drive.google.com/file/d/1MtwO5tvXvvyloc12-wZ2lMBzGKd9hsof/view?usp=sharing) |
 |  |  |  |  |  |  |  |
-* **YOLOv4**<sub>pacsp-x</sub> now training to 260/300 epochs.
 
 ## Requirements
 
