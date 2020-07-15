@@ -8,6 +8,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ### development log
 
+<details><summary> <b>Expand</b> </summary>
+  
 * `2020-06-16` - support floating16 of GPU inference.
 * `2020-06-14` - convert .pt to .weights for darknet fine-tuning.
 * `2020-06-13` - update multi-scale training strategy.
@@ -19,6 +21,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 * `2020-05-15` - training YOLOv4 with Mish activation function. [`yolov4-yospp-mish`]() [`yolov4-paspp-mish`]()
 * `2020-05-08` - design and training YOLOv4 with FPN neck. [`yolov4-yospp`]()
 * `2020-05-01` - training YOLOv4 with Leaky activation function using PyTorch. [`yolov4-paspp`]()
+
+</details>
 
 ## Pretrained Models & Comparison
 
