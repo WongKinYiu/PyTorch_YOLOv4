@@ -215,12 +215,13 @@ def test(cfg,
         cocoEval.accumulate()
         cocoEval.summarize()
         map, map50 = cocoEval.stats[:2]  # update results (mAP@0.5:0.95, mAP@0.5)
+        return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t
 
     # Return results
     maps = np.zeros(nc) + map
     for i, c in enumerate(ap_class):
         maps[c] = ap[i]
-    return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t
+    return (mp, mr, map, mf1, *(loss.cpu() / len(dataloader)).tolist()), maps
 
 
 if __name__ == '__main__':
