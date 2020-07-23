@@ -2,6 +2,13 @@ import torch.nn.functional as F
 
 from utils.utils import *
 
+try:
+    from mish_cuda import MishCuda as Mish
+except:
+    class Mish(nn.Module):  # https://github.com/digantamisra98/Mish
+        def forward(self, x):
+            return x * F.softplus(x).tanh()
+
 
 def make_divisible(v, divisor):
     # Function ensures all layers have a channel number that is divisible by 8
@@ -33,6 +40,16 @@ class FeatureConcat(nn.Module):
 
     def forward(self, x, outputs):
         return torch.cat([outputs[i] for i in self.layers], 1) if self.multiple else outputs[self.layers[0]]
+
+
+class FeatureConcat_l(nn.Module):
+    def __init__(self, layers):
+        super(FeatureConcat_l, self).__init__()
+        self.layers = layers  # layer indices
+        self.multiple = len(layers) > 1  # multiple layers flag
+
+    def forward(self, x, outputs):
+        return torch.cat([outputs[i][:,:outputs[i].shape[1]//2,:,:] for i in self.layers], 1) if self.multiple else outputs[self.layers[0]][:,:outputs[self.layers[0]].shape[1]//2,:,:]
 
 
 class WeightedFeatureFusion(nn.Module):  # weighted sum of 2 or more layers https://arxiv.org/abs/1911.09070
@@ -141,8 +158,3 @@ class Swish(nn.Module):
 class HardSwish(nn.Module):  # https://arxiv.org/pdf/1905.02244.pdf
     def forward(self, x):
         return x * F.hardtanh(x + 3, 0., 6., True) / 6.
-
-
-class Mish(nn.Module):  # https://github.com/digantamisra98/Mish
-    def forward(self, x):
-        return x * F.softplus(x).tanh()
