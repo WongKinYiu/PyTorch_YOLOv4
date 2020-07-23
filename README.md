@@ -10,6 +10,11 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
   
+* `2020-07-23` - support CUDA accelerated Mish activation function.
+* `2020-07-19` - support and training tiny YOLOv4. [`yolov4-tiny`]()
+* `2020-07-15` - design and training conditional YOLOv4. [`yolov4-pacsp-conditional`]()
+* `2020-07-13` - support MixUp data augmentation.
+* `2020-07-03` - design new stem layers.
 * `2020-06-16` - support floating16 of GPU inference.
 * `2020-06-14` - convert .pt to .weights for darknet fine-tuning.
 * `2020-06-13` - update multi-scale training strategy.
@@ -33,12 +38,19 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv4**<sub>pacsp</sub> | 736 | 46.4% | 64.8% | 51.0% | 28.5% | 51.9% | 59.5% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp.cfg) | [weights](https://drive.google.com/file/d/1SPCjPnMgA8jlfIGsAnFsMPdJU8dJeo7E/view?usp=sharing) |
 | **YOLOv4**<sub>pacsp-x</sub> | 736 | **47.6%** | **66.1%** | **52.2%** | **29.9%** | **53.3%** | **61.5%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x.cfg) | [weights](https://drive.google.com/file/d/1MtwO5tvXvvyloc12-wZ2lMBzGKd9hsof/view?usp=sharing) |
 |  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp-s-mish</sub> | 736 | 37.4% | 56.3% | 40.0% | 20.9% | 43.0% | 49.3% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s-mish.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-mish</sub> | 736 | 46.5% | 65.7% | 50.2% | 30.0% | 52.0% | 59.4% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-mish.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-x-mish</sub> | 736 | **48.5%** | **67.4%** | **52.7%** | **30.9%** | **54.0%** | **62.0%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x-mish.cfg) | [weights]() |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>tiny</sub> | 416 | **22.5%** | **39.3%** | **22.5%** | **7.4%** | **26.3%** | **34.8%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-tiny.cfg) | [weights]() |
+|  |  |  |  |  |  |  |
 
 ## Requirements
 
 ```
 pip install -r requirements.txt
 ```
+※ For running Mish models, please install https://github.com/thomasbrandon/mish-cuda
 
 ## Training
 
