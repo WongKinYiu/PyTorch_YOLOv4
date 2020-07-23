@@ -56,6 +56,30 @@ class BottleneckCSP(nn.Module):
         return self.cv4(self.act(self.bn(torch.cat((y1, y2), dim=1))))
 
 
+class VoVCSP(nn.Module):
+    # CSP Bottleneck https://github.com/WongKinYiu/CrossStagePartialNetworks
+    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):  # ch_in, ch_out, number, shortcut, groups, expansion
+        super(VoVCSP, self).__init__()
+        c_ = int(c2)  # hidden channels
+        self.cv1 = Conv(c1//2, c_//2, 3, 1)
+        self.cv2 = Conv(c_//2, c_//2, 3, 1)
+        self.cv3 = Conv(c_, c2, 1, 1)
+
+    def forward(self, x):
+        _, x1 = x.chunk(2, dim=1)
+        x1 = self.cv1(x1)
+        x2 = self.cv2(x1)
+        return self.cv3(torch.cat((x1,x2), dim=1))
+
+class MP(nn.Module):
+    def __init__(self, k=2):
+        super(MP, self).__init__()
+        self.m = nn.MaxPool2d(kernel_size=k, stride=k)
+
+    def forward(self, x):
+        return self.m(x)
+
+
 class SPP(nn.Module):
     # Spatial pyramid pooling layer used in YOLOv3-SPP
     def __init__(self, c1, c2, k=(5, 9, 13)):
