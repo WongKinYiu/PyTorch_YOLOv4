@@ -81,6 +81,12 @@ def create_modules(module_defs, img_size, cfg):
             routs.extend([i + l if l < 0 else l for l in layers])
             modules = FeatureConcat(layers=layers)
 
+        elif mdef['type'] == 'route_lhalf':  # nn.Sequential() placeholder for 'route' layer
+            layers = mdef['layers']
+            filters = sum([output_filters[l + 1 if l > 0 else l] for l in layers])//2
+            routs.extend([i + l if l < 0 else l for l in layers])
+            modules = FeatureConcat_l(layers=layers)
+
         elif mdef['type'] == 'shortcut':  # nn.Sequential() placeholder for 'shortcut' layer
             layers = mdef['from']
             filters = output_filters[-1]
@@ -93,6 +99,8 @@ def create_modules(module_defs, img_size, cfg):
         elif mdef['type'] == 'yolo':
             yolo_index += 1
             stride = [8, 16, 32]  # P5, P4, P3 strides
+            if any(x in cfg for x in ['yolov4-tiny']):  # stride order reversed
+                stride = [32, 16, 8]
             layers = mdef['from'] if 'from' in mdef else []
             modules = YOLOLayer(anchors=mdef['anchors'][mdef['mask']],  # anchor list
                                 nc=mdef['classes'],  # number of classes
@@ -278,7 +286,7 @@ class Darknet(nn.Module):
 
         for i, module in enumerate(self.module_list):
             name = module.__class__.__name__
-            if name in ['WeightedFeatureFusion', 'FeatureConcat']:  # sum, concat
+            if name in ['WeightedFeatureFusion', 'FeatureConcat', 'FeatureConcat_l']:  # sum, concat
                 if verbose:
                     l = [i - 1] + module.layers  # layers
                     sh = [list(x.shape)] + [list(out[i].shape) for i in module.layers]  # shapes
