@@ -192,6 +192,7 @@ def test(cfg,
         t = tuple(x / seen * 1E3 for x in (t0, t1, t0 + t1)) + (img_size, img_size, batch_size)  # tuple
         print('Speed: %.1f/%.1f/%.1f ms inference/NMS/total per %gx%g image at batch-size %g' % t)
 
+    maps = np.zeros(nc) + map
     # Save JSON
     if save_json and map and len(jdict):
         print('\nCOCO mAP with pycocotools...')
@@ -218,7 +219,6 @@ def test(cfg,
         return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t
 
     # Return results
-    maps = np.zeros(nc) + map
     for i, c in enumerate(ap_class):
         maps[c] = ap[i]
     return (mp, mr, map, mf1, *(loss.cpu() / len(dataloader)).tolist()), maps
