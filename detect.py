@@ -5,9 +5,8 @@ from models import *  # set ONNX_EXPORT in models.py
 from utils.datasets import *
 from utils.utils import *
 
-
 def detect(save_img=False):
-    img_size = (320, 192) if ONNX_EXPORT else opt.img_size  # (320, 192) or (416, 256) or (608, 352) for (height, width)
+    img_size = (320, 320) if ONNX_EXPORT else opt.img_size  # (320, 192) or (416, 256) or (608, 352) for (height, width)
     out, source, weights, half, view_img, save_txt = opt.output, opt.source, opt.weights, opt.half, opt.view_img, opt.save_txt
     webcam = source == '0' or source.startswith('rtsp') or source.startswith('http') or source.endswith('.txt')
 
@@ -45,14 +44,15 @@ def detect(save_img=False):
         model.fuse()
         img = torch.zeros((1, 3) + img_size)  # (1, 3, 320, 192)
         f = opt.weights.replace(opt.weights.split('.')[-1], 'onnx')  # *.onnx filename
-        torch.onnx.export(model, img, f, verbose=False, opset_version=11,
-                          input_names=['images'], output_names=['classes', 'boxes'])
+        torch.onnx.export(model, img, f, verbose=True, opset_version=10, export_params=True, do_constant_folding=True,
+                          input_names=['images'], output_names=['classes', 'boxes'], dynamic_axes=None)
 
         # Validate exported model
         import onnx
         model = onnx.load(f)  # Load the ONNX model
         onnx.checker.check_model(model)  # Check that the IR is well formed
         print(onnx.helper.printable_graph(model.graph))  # Print a human readable representation of the graph
+        print("Exported to " + f)
         return
 
     # Half precision

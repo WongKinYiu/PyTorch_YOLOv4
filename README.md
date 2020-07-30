@@ -64,6 +64,16 @@ python train.py --data coco2017.data --cfg yolov4-pacsp.cfg --weights '' --name 
 python test_half.py --data coco2017.data --cfg yolov4-pacsp.cfg --weights yolov4-pacsp.pt --img 736 --iou-thr 0.7 --batch-size 8
 ```
 
+## ONNX export
+
+Set the [`ONNX_EXPORT` variable to `True` in models.py](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/models.py#L5), then launch the detection script with the desired model
+
+```
+python detect.py --cfg yolov4-pacsp-s.cfg --weights weights/yolov4-pacsp-s.pt
+```
+
+The ONNX input size is [hardcoded in detect.py](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/detect.py#L10) when `ONNX_EXPORT` is set to true.
+
 ## Citation
 
 ```

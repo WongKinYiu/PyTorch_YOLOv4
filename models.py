@@ -14,6 +14,9 @@ def create_modules(module_defs, img_size, cfg):
     module_list = nn.ModuleList()
     routs = []  # list of layers which rout to deeper layers
     yolo_index = -1
+    # To avoid dimensions issues when exporting to ONNX
+    # https://github.com/ultralytics/yolov3/issues/1169#issuecomment-650678238
+    upsample_index = 0
 
     for i, mdef in enumerate(module_defs):
         modules = nn.Sequential()
@@ -70,7 +73,9 @@ def create_modules(module_defs, img_size, cfg):
 
         elif mdef['type'] == 'upsample':
             if ONNX_EXPORT:  # explicitly state size, avoid scale_factor
-                g = (yolo_index + 1) * 2 / 32  # gain
+                # g = (yolo_index + 1) * 2 / 32  # gain
+                g = (upsample_index + 1) * 2 / 32  # gain
+                upsample_index += 1
                 modules = nn.Upsample(size=tuple(int(x * g) for x in img_size))  # img_size = (320, 192)
             else:
                 modules = nn.Upsample(scale_factor=mdef['stride'])
@@ -98,9 +103,13 @@ def create_modules(module_defs, img_size, cfg):
 
         elif mdef['type'] == 'yolo':
             yolo_index += 1
-            stride = [8, 16, 32]  # P5, P4, P3 strides
-            if any(x in cfg for x in ['yolov4-tiny']):  # stride order reversed
-                stride = [32, 16, 8]
+            #stride = [8, 16, 32]  # P5, P4, P3 strides
+            #if any(x in cfg for x in ['yolov4-tiny']):  # stride order reversed
+            #    stride = [32, 16, 8]
+            stride = [32, 16, 8]  # P5, P4, P3 strides
+            if any(x in cfg for x in ['panet', 'yolov4', 'cd53']):  # stride order reversed
+                stride = list(reversed(stride))
+
             layers = mdef['from'] if 'from' in mdef else []
             modules = YOLOLayer(anchors=mdef['anchors'][mdef['mask']],  # anchor list
                                 nc=mdef['classes'],  # number of classes
