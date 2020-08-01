@@ -33,8 +33,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | yaml | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **YOLOv4**<sub>pacsp-s-mish</sub> | 672 | 40.4% | 59.0% | 43.8% | 23.5% | 45.0% | 53.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-s-mish.yaml) | [weights]() |
-| **YOLOv4**<sub>pacsp-mish</sub> | 672 | 47.2% | 65.6% | 51.3% | 29.6% | 52.5% | 60.8% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-mish.yaml) | [weights]() |
+| **YOLOv4**<sub>pacsp-s-mish</sub> | 672 | 40.4% | 59.0% | 43.8% | 23.5% | 45.0% | 53.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-s-mish.yaml) | [weights](https://drive.google.com/file/d/1G4T79LAul7mOlzCBz0XqSAEU0cTsSBRs/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-mish</sub> | 672 | 47.2% | 65.6% | 51.3% | 29.6% | 52.5% | 60.8% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-mish.yaml) | [weights](https://drive.google.com/file/d/1vMjsWEoYh-8Vnicn9YCskjjBK0hIKaBE/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 
 ## Requirements
