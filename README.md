@@ -10,6 +10,10 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2020-08-01` - add pytorch hub.
+* `2020-07-31` - support ResNet, ResNeXt, CSPResNet, CSPResNeXt.
+* `2020-07-28` - support SAM.
+* `2020-07-24` - update api.
 * `2020-07-23` - support CUDA accelerated Mish activation function.
 * `2020-07-19` - support and training tiny YOLOv4. [`yolov4-tiny`]()
 * `2020-07-15` - design and training conditional YOLOv4. [`yolov4-pacsp-conditional`]()
@@ -33,8 +37,9 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | yaml | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **YOLOv4**<sub>pacsp-s-mish</sub> | 672 | 40.4% | 59.0% | 43.8% | 23.5% | 45.0% | 53.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-s-mish.yaml) | [weights]() |
-| **YOLOv4**<sub>pacsp-mish</sub> | 672 | 47.2% | 65.6% | 51.3% | 29.6% | 52.5% | 60.8% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-mish.yaml) | [weights]() |
+| **YOLOv4**<sub>pacsp-s</sub> | 736 | 38.9% | 58.0% | 42.1% | 22.3% | 44.0% | 49.3% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_preview/models/yolov4-pacsp-s.yaml) | [weights](https://drive.google.com/file/d/1Nvob6TV1mOUlPcsZpldp0LbjodIy4GHB/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp</sub> | 736 | 46.9% | 66.0% | 51.2% | 29.7% | 52.7% | 59.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_preview/models/yolov4-pacsp.yaml) | [weights](https://drive.google.com/file/d/1I2EM5_IatwP9CPib2x8irRd1ZDYKEK6B/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-x</sub> | 736 | **48.6%** | **67.3%** | **53.2%** | **32.1%** | **54.0%** | **62.2%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_preview/models/yolov4-pacsp-x.yaml) | [weights](https://drive.google.com/file/d/10PkvKdxCu1dLLOqkg_euL6rBvr2q3dZU/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 
 ## Requirements
@@ -46,14 +51,13 @@ pip install -r requirements.txt
 ## Training
 
 ```
-python train.py --data coco.yaml --cfg yolov4-pacsp-mish.yaml --weights ''
+python train.py --data coco.yaml --cfg yolov4-pacsp.yaml --weights ''
 ```
-※ Please also install https://github.com/thomasbrandon/mish-cuda
 
 ## Testing
 
 ```
-python test.py --img 672 --conf 0.001 --batch 32 --data coco.yaml --weights weights/yolov4-pacsp-mish.pt
+python test.py --img 736 --conf 0.001 --batch 8 --data coco.yaml --weights weights/yolov4-pacsp.pt
 ```
 
 ## Citation
