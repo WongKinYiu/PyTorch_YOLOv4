@@ -37,7 +37,8 @@ def create(name, pretrained, channels, classes):
             print(url_name)
             dst_ckpt = './' + ckpt
             print('dst_ckpt:', dst_ckpt)
-            urllib.request.urlretrieve(url_name, dst_ckpt)
+            if not os.path.isfile(dst_ckpt):
+                urllib.request.urlretrieve(url_name, dst_ckpt)
             # google_utils.attempt_download(ckpt)  # download if not found locally
             state_dict = torch.load(dst_ckpt, map_location=torch.device('cpu'))['model'].float().state_dict()  # to FP32
             state_dict = {k: v for k, v in state_dict.items() if model.state_dict()[k].shape == v.shape}  # filter
