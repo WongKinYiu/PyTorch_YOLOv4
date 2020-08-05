@@ -259,10 +259,12 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
     def __init__(self, path, img_size=416, batch_size=16, augment=False, hyp=None, rect=False, image_weights=False,
                  cache_images=False, single_cls=False):
         path = str(Path(path))  # os-agnostic
+        parent = str(Path(path).parent) + os.sep
         assert os.path.isfile(path), 'File not found %s. See %s' % (path, help_url)
         with open(path, 'r') as f:
             self.img_files = [x.replace('/', os.sep) for x in f.read().splitlines()  # os-agnostic
                               if os.path.splitext(x)[-1].lower() in img_formats]
+            self.img_files = [x.replace('./', parent) if x.startswith('./') else x for x in self.img_files]
 
         n = len(self.img_files)
         assert n > 0, 'No images found in %s. See %s' % (path, help_url)
