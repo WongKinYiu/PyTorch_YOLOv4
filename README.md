@@ -35,6 +35,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
 | **YOLOv4**<sub>pacsp-s-mish</sub> | 672 | 40.4% | 59.0% | 43.8% | 23.5% | 45.0% | 53.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-s-mish.yaml) | [weights](https://drive.google.com/file/d/1G4T79LAul7mOlzCBz0XqSAEU0cTsSBRs/view?usp=sharing) |
 | **YOLOv4**<sub>pacsp-mish</sub> | 672 | 47.2% | 65.6% | 51.3% | 29.6% | 52.5% | 60.8% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-mish.yaml) | [weights](https://drive.google.com/file/d/1vMjsWEoYh-8Vnicn9YCskjjBK0hIKaBE/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-mish</sub> | 672 | 48.6% | 67.1% | 52.8% | 32.1% | 54.1% | 63.1% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-x-mish.yaml) | [weights]() |
 |  |  |  |  |  |  |  |
 
 ## Requirements
