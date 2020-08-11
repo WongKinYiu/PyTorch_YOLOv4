@@ -10,6 +10,9 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2020-08-11` - support HarDNet.
+* `2020-08-10` - add DDP training.
+* `2020-08-06` - support DCN, DCNv2.
 * `2020-08-01` - add pytorch hub.
 * `2020-07-31` - support ResNet, ResNeXt, CSPResNet, CSPResNeXt.
 * `2020-07-28` - support SAM.
