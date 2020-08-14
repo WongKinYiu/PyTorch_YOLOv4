@@ -45,7 +45,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv4**<sub>l-mish</sub> | 672 | 48.1% | 66.8% | 52.6% | 31.9% | 53.3% | 61.0% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4l-mish.yaml) | [weights](https://drive.google.com/file/d/1qzH5DhxUhjoQos3zRd8YFGItEAxWi32X/view?usp=sharing) |
 | **YOLOv4**<sub>x-mish</sub> | 672 | **49.8%** | **68.4%** | **54.4%** | **32.7%** | **55.3%** | **63.6%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
 |  |  |  |  |  |  |  |
-| **YOLOv4**<sub>x-mish</sub>(TTA) | 672 | **51.2%** | **69.1%** | **56.1%** | **35.6%** | **56.3%** | **64.9%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
+| **YOLOv4**<sub>x-mish</sub> | TTA | **51.2%** | **69.1%** | **56.1%** | **35.6%** | **56.3%** | **64.9%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 
 ## Requirements
