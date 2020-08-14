@@ -4,12 +4,19 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 * [[original Darknet implementation of YOLOv4]](https://github.com/AlexeyAB/darknet)
 
-* [[ultralytics/yolov3 based PyTorch implementation of YOLOv4]](https://github.com/WongKinYiu/PyTorch_YOLOv4).
+* [[ultralytics/yolov3 based PyTorch implementation of YOLOv4]](https://github.com/WongKinYiu/PyTorch_YOLOv4/tree/u3_preview).
 
 ### development log
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2020-08-11` - support HarDNet.
+* `2020-08-10` - add DDP training.
+* `2020-08-06` - support DCN, DCNv2.
+* `2020-08-01` - add pytorch hub.
+* `2020-07-31` - support ResNet, ResNeXt, CSPResNet, CSPResNeXt.
+* `2020-07-28` - support SAM.
+* `2020-07-24` - update api.
 * `2020-07-23` - support CUDA accelerated Mish activation function.
 * `2020-07-19` - support and training tiny YOLOv4. [`yolov4-tiny`]()
 * `2020-07-15` - design and training conditional YOLOv4. [`yolov4-pacsp-conditional`]()
@@ -33,9 +40,12 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | yaml | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **YOLOv4**<sub>pacsp-s-mish</sub> | 672 | 40.4% | 59.0% | 43.8% | 23.5% | 45.0% | 53.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-s-mish.yaml) | [weights](https://drive.google.com/file/d/1G4T79LAul7mOlzCBz0XqSAEU0cTsSBRs/view?usp=sharing) |
-| **YOLOv4**<sub>pacsp-mish</sub> | 672 | 47.2% | 65.6% | 51.3% | 29.6% | 52.5% | 60.8% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-mish.yaml) | [weights](https://drive.google.com/file/d/1vMjsWEoYh-8Vnicn9YCskjjBK0hIKaBE/view?usp=sharing) |
-| **YOLOv4**<sub>pacsp-mish</sub> | 672 | 48.6% | 67.1% | 52.8% | 32.1% | 54.1% | 63.1% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5_mish_preview/models/yolov4-pacsp-x-mish.yaml) | [weights]() |
+| **YOLOv4**<sub>s-mish</sub> | 672 | 40.3% | 59.4% | 43.8% | 23.9% | 45.3% | 52.2% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4s-mish.yaml) | [weights](https://drive.google.com/file/d/1Ku41qm7sLk3vRWI46MslbAMu9pxlqtnk/view?usp=sharing) |
+| **YOLOv4**<sub>m-mish</sub> | 672 | 44.7% | 64.0% | 48.7% | 28.3% | 50.2% | 57.7% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4m-mish.yaml) | [weights](https://drive.google.com/file/d/1EqbLcdLxjigvYdLhl-YQtPl2qR2KP9iU/view?usp=sharing) |
+| **YOLOv4**<sub>l-mish</sub> | 672 | 48.1% | 66.8% | 52.6% | 31.9% | 53.3% | 61.0% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4l-mish.yaml) | [weights](https://drive.google.com/file/d/1qzH5DhxUhjoQos3zRd8YFGItEAxWi32X/view?usp=sharing) |
+| **YOLOv4**<sub>x-mish</sub> | 672 | **49.8%** | **68.4%** | **54.4%** | **32.7%** | **55.3%** | **63.6%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>x-mish</sub>(TTA) | 672 | **51.2%** | **69.1%** | **56.1%** | **35.6%** | **56.3%** | **64.9%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 
 ## Requirements
@@ -47,14 +57,14 @@ pip install -r requirements.txt
 ## Training
 
 ```
-python train.py --data coco.yaml --cfg yolov4-pacsp-mish.yaml --weights ''
+python train.py --data coco.yaml --cfg yolov4l-mish.yaml --weights ''
 ```
 ※ Please also install https://github.com/thomasbrandon/mish-cuda
 
 ## Testing
 
 ```
-python test.py --img 672 --conf 0.001 --batch 32 --data coco.yaml --weights weights/yolov4-pacsp-mish.pt
+python test.py --img 672 --conf 0.001 --batch 32 --data coco.yaml --weights weights/yolov4l-mish.pt
 ```
 
 ## Citation
