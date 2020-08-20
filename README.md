@@ -10,12 +10,13 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
-* `2020-08-11` - support HarDNet.
+* `2020-08-15` - design deeper model. [`csp-p6-mish`]()
+* `2020-08-11` - support HarDNet. [`hard39-pacsp`]() [`hard68-pacsp`]() [`hard85-pacsp`]()
 * `2020-08-10` - add DDP training.
-* `2020-08-06` - support DCN, DCNv2.
+* `2020-08-06` - support DCN, DCNv2. [`yolov4-dcn`]()
 * `2020-08-01` - add pytorch hub.
-* `2020-07-31` - support ResNet, ResNeXt, CSPResNet, CSPResNeXt.
-* `2020-07-28` - support SAM.
+* `2020-07-31` - support ResNet, ResNeXt, CSPResNet, CSPResNeXt. [`r50-pacsp`]() [`x50-pacsp`]() [`cspr50-pacsp`]() [`cspx50-pacsp`]()
+* `2020-07-28` - support SAM. [`yolov4-pacsp-sam`]()
 * `2020-07-24` - update api.
 * `2020-07-23` - support CUDA accelerated Mish activation function.
 * `2020-07-19` - support and training tiny YOLOv4. [`yolov4-tiny`]()
@@ -46,6 +47,9 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv4**<sub>x-mish</sub> | 672 | **49.8%** | **68.4%** | **54.4%** | **32.7%** | **55.3%** | **63.6%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 | **YOLOv4**<sub>x-mish</sub> | TTA | **51.2%** | **69.1%** | **56.1%** | **35.6%** | **56.3%** | **64.9%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
+|  |  |  |  |  |  |  |
+| **CSP**<sub>p6-mish</sub> | 960 | **51.7%** | **70.2%** | **56.5%** | **34.5%** | **56.3%** | **66.0%** | - | - |
+| **CSP**<sub>p6-mish</sub> | TTA | **52.7%** | **70.4%** | **57.8%** | **37.1%** | **57.3%** | **66.6%** | - | - |
 |  |  |  |  |  |  |  |
 
 ## Requirements
