@@ -10,6 +10,9 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2020-08-29` - support deformable kernel. 
+* `2020-08-24` - support channel last training/testing. 
+* `2020-08-16` - design CSPPRN. 
 * `2020-08-15` - design deeper model. [`csp-p6-mish`]()
 * `2020-08-11` - support HarDNet. [`hard39-pacsp`]() [`hard68-pacsp`]() [`hard85-pacsp`]()
 * `2020-08-10` - add DDP training.
