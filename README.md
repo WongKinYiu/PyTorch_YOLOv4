@@ -54,6 +54,15 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **CSP**<sub>p6-mish</sub> | 960 | **51.7%** | **70.2%** | **56.5%** | **34.5%** | **56.3%** | **66.0%** | - | - |
 | **CSP**<sub>p6-mish</sub> | TTA | **52.7%** | **70.4%** | **57.8%** | **37.1%** | **57.3%** | **66.6%** | - | - |
 |  |  |  |  |  |  |  |
+| **CSP**<sub>p6-mish</sub> | 1280 | **53.0%** | **71.1%** | **58.0%** | **37.6%** | **57.4%** | **65.8%** | - | - |
+| **CSP**<sub>p6-mish</sub> | TTA | **53.6%** | **71.3%** | **58.8%** | **38.7%** | **58.0%** | **68.1%** | - | - |
+|  |  |  |  |  |  |  |
+
+| Model | Test Size | AP<sup>test</sup> | AP<sub>50</sub><sup>test</sup> | AP<sub>75</sub><sup>test</sup> | AP<sub>S</sub><sup>test</sup> | AP<sub>M</sub><sup>test</sup> | AP<sub>L</sub><sup>test</sup> | yaml | weights |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
+| **CSP**<sub>p6-mish</sub> | 1280 | **53.0%** | **71.1%** | **57.9%** | **35.1%** | **56.8%** | **64.4%** | - | - |
+| **CSP**<sub>p6-mish</sub> | TTA | **53.6%** | **71.2%** | **58.7%** | **35.5%** | **57.4%** | **66.2%** | - | - |
+|  |  |  |  |  |  |  |
 
 ## Requirements
 
