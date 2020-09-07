@@ -58,10 +58,10 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **CSP**<sub>p6-mish</sub> | TTA | **53.8%** | **71.4%** | **59.0%** | **38.3%** | **58.2%** | **67.7%** | - | - |
 |  |  |  |  |  |  |  |
 
-| Model | Test Size | AP<sup>test</sup> | AP<sub>50</sub><sup>test</sup> | AP<sub>75</sub><sup>test</sup> | AP<sub>S</sub><sup>test</sup> | AP<sub>M</sub><sup>test</sup> | AP<sub>L</sub><sup>test</sup> | yaml | weights |
-| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **CSP**<sub>p6-mish</sub> | 1280 | **53.3%** | **71.3%** | **58.2%** | **35.3%** | **56.9%** | **64.8%** | - | - |
-| **CSP**<sub>p6-mish</sub> | TTA | **54.0%** | **71.5%** | **59.2%** | **36.3%** | **57.7%** | **66.0%** | - | - |
+| Model | Test Size | AP<sup>test</sup> | AP<sub>50</sub><sup>test</sup> | AP<sub>75</sub><sup>test</sup> | AP<sub>S</sub><sup>test</sup> | AP<sub>M</sub><sup>test</sup> | AP<sub>L</sub><sup>test</sup> | batch1 throughput |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
+| **CSP**<sub>p6-mish</sub> | 1280 | **53.3%** | **71.3%** | **58.2%** | **35.3%** | **56.9%** | **64.8%** | 30 fps |
+| **CSP**<sub>p6-mish</sub> | TTA | **54.0%** | **71.5%** | **59.2%** | **36.3%** | **57.7%** | **66.0%** | - |
 |  |  |  |  |  |  |  |
 
 ## Requirements
