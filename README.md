@@ -51,11 +51,11 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 |  |  |  |  |  |  |  |
 | **YOLOv4**<sub>x-mish</sub> | TTA | **51.2%** | **69.1%** | **56.1%** | **35.6%** | **56.3%** | **64.9%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
 |  |  |  |  |  |  |  |
-| **CSP**<sub>p6-mish</sub> | 1280 | **53.1%** | **71.2%** | **57.9%** | **37.6%** | **57.3%** | **66.3%** | - | - |
-| **CSP**<sub>p6-mish</sub> | TTA | **53.8%** | **71.4%** | **59.0%** | **38.3%** | **58.2%** | **67.7%** | - | - |
+| **CSP**<sub>p6-mish</sub> | 1280 | **53.1%** | **71.2%** | **57.9%** | **37.6%** | **57.3%** | **66.3%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p6-mish.yaml) | - |
+| **CSP**<sub>p6-mish</sub> | TTA | **53.8%** | **71.4%** | **59.0%** | **38.3%** | **58.2%** | **67.7%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p6-mish.yaml) | - |
 |  |  |  |  |  |  |  |
-| **CSP**<sub>p7-mish</sub> | 1536 | **54.0%** | **71.8%** | **59.0%** | **38.2%** | **58.8%** | **67.2%** | - | - |
-| **CSP**<sub>p7-mish</sub> | TTA | **54.6%** | **71.9%** | **59.7%** | **39.1%** | **59.5%** | **68.2%** | - | - |
+| **CSP**<sub>p7-mish</sub> | 1536 | **54.0%** | **71.8%** | **59.0%** | **38.2%** | **58.8%** | **67.2%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p7-mish.yaml) | - |
+| **CSP**<sub>p7-mish</sub> | TTA | **54.6%** | **71.9%** | **59.7%** | **39.1%** | **59.5%** | **68.2%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p7-mish.yaml) | - |
 |  |  |  |  |  |  |  |
 
 | Model | Test Size | AP<sup>test</sup> | AP<sub>50</sub><sup>test</sup> | AP<sub>75</sub><sup>test</sup> | AP<sub>S</sub><sup>test</sup> | AP<sub>M</sub><sup>test</sup> | AP<sub>L</sub><sup>test</sup> | batch1 throughput |
