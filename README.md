@@ -54,8 +54,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **CSP**<sub>p6-mish</sub> | 1280 | **53.9%** | **72.0%** | **59.0%** | **39.3%** | **58.3%** | **66.6%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p6-mish.yaml) | - |
 | **CSP**<sub>p6-mish</sub> | TTA | **54.4%** | **72.3%** | **59.6%** | **39.8%** | **58.9%** | **67.6%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p6-mish.yaml) | - |
 |  |  |  |  |  |  |  |
-| **CSP**<sub>p7-mish</sub> | 1536 | **54.5%** | **72.4%** | **59.7%** | **39.4%** | **59.1%** | **67.8%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p7-mish.yaml) | - |
-| **CSP**<sub>p7-mish</sub> | TTA | **55.1%** | **72.4%** | **60.5%** | **40.8%** | **59.8%** | **68.5%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p7-mish.yaml) | - |
+| **CSP**<sub>p7-mish</sub> | 1536 | **55.0%** | **72.9%** | **60.2%** | **39.8%** | **59.9%** | **68.4%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p7-mish.yaml) | - |
+| **CSP**<sub>p7-mish</sub> | TTA | **55.5%** | **72.9%** | **60.8%** | **41.1%** | **60.3%** | **68.9%** | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/csp-p7-mish.yaml) | - |
 |  |  |  |  |  |  |  |
 
 | Model | Test Size | AP<sup>test</sup> | AP<sub>50</sub><sup>test</sup> | AP<sub>75</sub><sup>test</sup> | AP<sub>S</sub><sup>test</sup> | AP<sub>M</sub><sup>test</sup> | AP<sub>L</sub><sup>test</sup> | batch1 throughput |
@@ -63,8 +63,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **CSP**<sub>p6-mish</sub> | 1280 | **54.3%** | **72.3%** | **59.5%** | **36.6%** | **58.2%** | **65.5%** | 30 fps |
 | **CSP**<sub>p6-mish</sub> | TTA | **54.9%** | **72.6%** | **60.2%** | **37.4%** | **58.8%** | **66.7%** | - |
 |  |  |  |  |  |  |  |
-| **CSP**<sub>p7-mish</sub> | 1536 | **54.8%** | **72.6%** | **60.0%** | **37.6%** | **58.8%** | **66.5%** | 15 fps |
-| **CSP**<sub>p7-mish</sub> | TTA | **55.2%** | **72.6%** | **60.6%** | **38.2%** | **59.4%** | **67.3%** | - |
+| **CSP**<sub>p7-mish</sub> | 1536 | **55.4%** | **73.3%** | **60.7%** | **38.1%** | **59.5%** | **67.4%** | 15 fps |
+| **CSP**<sub>p7-mish</sub> | TTA | **55.8%** | **73.2%** | **61.2%** | **38.8%** | **60.1%** | **68.2%** | - |
 |  |  |  |  |  |  |  |
 
 ## Requirements
