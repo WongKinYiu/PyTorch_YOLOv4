@@ -1,12 +1,9 @@
 numpy == 1.17
 opencv-python >= 4.1
-torch >= 1.5
+torch == 1.6
 torchvision
 matplotlib
 pycocotools
 tqdm
 pillow
 tensorboard >= 1.14
-
-# Nvidia Apex (optional) for mixed precision training --------------------------
-# git clone https://github.com/NVIDIA/apex && cd apex && pip install -v --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" . --user
