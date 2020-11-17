@@ -65,13 +65,13 @@ pip install -r requirements.txt
 ## Training
 
 ```
-python train.py --device 0 --batch-size 16 --img 640 640 --data coco.yaml --cfg yolov4-pacsp.cfg --weights '' --name yolov4-pacsp
+python train.py --device 0 --batch-size 16 --img 640 640 --data coco.yaml --cfg cfg/yolov4-pacsp.cfg --weights '' --name yolov4-pacsp
 ```
 
 ## Testing
 
 ```
-python test.py --img 640 --conf 0.001 --batch 8 --device 0 --data coco.yaml --cfg models/yolov4-pacsp.cfg --weights weights/yolov4-pacsp.pt
+python test.py --img 640 --conf 0.001 --batch 8 --device 0 --data coco.yaml --cfg cfg/yolov4-pacsp.cfg --weights weights/yolov4-pacsp.pt
 ```
 
 ## Citation
