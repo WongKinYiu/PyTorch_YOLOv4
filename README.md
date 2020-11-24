@@ -9,8 +9,14 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 ### development log
 
 <details><summary> <b>Expand</b> </summary>
-
+  
+* `2020-11-23` - support teacher-student learning.
+* `2020-11-17` - pytorch 1.7 compatibility. 
+* `2020-11-06` - support inference with initial weights. 
+* `2020-10-21` - fully supported by darknet. 
+* `2020-09-18` - design fine-tune methods. 
 * `2020-08-29` - support deformable kernel. 
+* `2020-08-25` - pytorch 1.6 compatibility.
 * `2020-08-24` - support channel last training/testing. 
 * `2020-08-16` - design CSPPRN. 
 * `2020-08-15` - design deeper model. [`csp-p6-mish`]()
