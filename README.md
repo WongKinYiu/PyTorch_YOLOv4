@@ -9,7 +9,9 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 ### development log
 
 <details><summary> <b>Expand</b> </summary>
-  
+
+* `2020-11-26` - support multi-class multi-anchor joint detection and embedding.
+* `2020-11-25` - support joint detection and embedding.
 * `2020-11-23` - support teacher-student learning.
 * `2020-11-17` - pytorch 1.7 compatibility. 
 * `2020-11-06` - support inference with initial weights. 
