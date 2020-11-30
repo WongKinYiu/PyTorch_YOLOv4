@@ -82,6 +82,14 @@ python train.py --device 0 --batch-size 16 --img 640 640 --data coco.yaml --cfg 
 python test.py --img 640 --conf 0.001 --batch 8 --device 0 --data coco.yaml --cfg cfg/yolov4-pacsp.cfg --weights weights/yolov4-pacsp.pt
 ```
 
+## Teacher-Student Learning
+
+| Model | Teacher | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| **YOLOv4**<sub>pacsp-s-mish</sub> | - | 672 | 38.6% | 57.7% | 41.8% | 22.3% | 43.5% | 49.3% |
+| **YOLOv4**<sub>pacsp-s-mish</sub> | **YOLOv4**<sub>pacsp-mish</sub> | 672 | **39.3%** | **58.4%** | **42.5%** | **23.4%** | **44.5%** | **50.7%** |
+|  |  |  |  |  |  |
+
 ## Citation
 
 ```
