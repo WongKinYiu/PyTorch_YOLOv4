@@ -27,8 +27,13 @@ from utils.general import (
 from utils.google_utils import attempt_download
 from utils.torch_utils import init_seeds, ModelEMA, select_device, intersect_dicts
 
+try:
+    import wandb
+except ImportError:
+    wandb = None
+    logger.info("Install Weights & Biases for experiment logging via 'pip install wandb' ")
 
-def train(hyp, opt, device, tb_writer=None):
+def train(hyp, opt, device, tb_writer=None, wandb=None):
     print(f'Hyperparameters {hyp}')
     log_dir = Path(tb_writer.log_dir) if tb_writer else Path(opt.logdir) / 'evolve'  # logging directory
     wdir = str(log_dir / 'weights') + os.sep  # weights directory
@@ -99,6 +104,13 @@ def train(hyp, opt, device, tb_writer=None):
     scheduler = lr_scheduler.LambdaLR(optimizer, lr_lambda=lf)
     # plot_lr_scheduler(optimizer, scheduler, epochs)
 
+    if wandb and wandb.run is None:
+        opt.hyp = hyp  # add hyperparameters
+        wandb_run = wandb.init(config=opt, resume="allow",
+                               project='YOLOv4' if opt.logdir == 'runs/' else Path(opt.logdir).stem,
+                               name=log_dir.stem,
+                               id=ckpt.get('wandb_id') if 'ckpt' in locals() else None)
+    
     # Resume
     start_epoch, best_fitness = 0, 0.0
     if pretrained:
@@ -305,21 +317,23 @@ def train(hyp, opt, device, tb_writer=None):
                                                  model=ema.ema.module if hasattr(ema.ema, 'module') else ema.ema,
                                                  single_cls=opt.single_cls,
                                                  dataloader=testloader,
-                                                 save_dir=log_dir)
+                                                 save_dir=log_dir,
+                                                 log_imgs=opt.log_imgs if wandb else 0)
 
             # Write
             with open(results_file, 'a') as f:
                 f.write(s + '%10.4g' * 7 % results + '\n')  # P, R, mAP, F1, test_losses=(GIoU, obj, cls)
             if len(opt.name) and opt.bucket:
                 os.system('gsutil cp %s gs://%s/results/results%s.txt' % (results_file, opt.bucket, opt.name))
-
-            # Tensorboard
-            if tb_writer:
-                tags = ['train/giou_loss', 'train/obj_loss', 'train/cls_loss',
-                        'metrics/precision', 'metrics/recall', 'metrics/mAP_0.5', 'metrics/mAP_0.5:0.95',
-                        'val/giou_loss', 'val/obj_loss', 'val/cls_loss']
-                for x, tag in zip(list(mloss[:-1]) + list(results), tags):
+                
+            tags = ['train/giou_loss', 'train/obj_loss', 'train/cls_loss',
+                    'metrics/precision', 'metrics/recall', 'metrics/mAP_0.5', 'metrics/mAP_0.5:0.95',
+                    'val/giou_loss', 'val/obj_loss', 'val/cls_loss']
+            for x, tag in zip(list(mloss[:-1]) + list(results), tags):
+                if tb_writer:
                     tb_writer.add_scalar(tag, x, epoch)
+                if wandb:
+                    wandb.log({tag: x})
 
             # Update best mAP
             fi = fitness(np.array(results).reshape(1, -1))  # fitness_i = weighted combination of [P, R, mAP, F1]
@@ -334,7 +348,8 @@ def train(hyp, opt, device, tb_writer=None):
                             'best_fitness': best_fitness,
                             'training_results': f.read(),
                             'model': ema.ema.module.state_dict() if hasattr(ema, 'module') else ema.ema.state_dict(),
-                            'optimizer': None if final_epoch else optimizer.state_dict()}
+                            'optimizer': None if final_epoch else optimizer.state_dict(),
+                            'wandb_id': wandb_run.id if wandb else None}
 
                 # Save last, best and delete
                 torch.save(ckpt, last)
@@ -362,6 +377,7 @@ def train(hyp, opt, device, tb_writer=None):
         print('%g epochs completed in %.3f hours.\n' % (epoch - start_epoch + 1, (time.time() - t0) / 3600))
 
     dist.destroy_process_group() if rank not in [-1, 0] else None
+    wandb.run.finish() if wandb and wandb.run else None
     torch.cuda.empty_cache()
     return results
 
@@ -392,6 +408,7 @@ if __name__ == '__main__':
     parser.add_argument('--sync-bn', action='store_true', help='use SyncBatchNorm, only available in DDP mode')
     parser.add_argument('--local_rank', type=int, default=-1, help='DDP parameter, do not modify')
     parser.add_argument('--logdir', type=str, default='runs/', help='logging directory')
+    parser.add_argument('--log-imgs', type=int, default=16, help='number of images for W&B logging, max 100')
     opt = parser.parse_args()
 
     # Resume
@@ -435,7 +452,7 @@ if __name__ == '__main__':
             print('Start Tensorboard with "tensorboard --logdir %s", view at http://localhost:6006/' % opt.logdir)
             tb_writer = SummaryWriter(log_dir=increment_dir(Path(opt.logdir) / 'exp', opt.name))  # runs/exp
 
-        train(hyp, opt, device, tb_writer)
+        train(hyp, opt, device, tb_writer, wandb)
 
     # Evolve hyperparameters (optional)
     else:
@@ -503,7 +520,7 @@ if __name__ == '__main__':
                 hyp[k] = round(hyp[k], 5)  # significant digits
 
             # Train mutation
-            results = train(hyp.copy(), opt, device)
+            results = train(hyp.copy(), opt, device, wandb)
 
             # Write mutation results
             print_mutation(hyp.copy(), results, yaml_file, opt.bucket)
