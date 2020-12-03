@@ -166,7 +166,7 @@ def test(data,
                              "scores": {"class_score": conf},
                              "domain": "pixel"} for *xyxy, conf, cls in pred.tolist()]
                 boxes = {"predictions": {"box_data": box_data, "class_labels": names_dict}}  # inference-space
-                wandb_images.append(wandb.Image(img[si], boxes=boxes, caption=Path(paths[si]).stem.name))
+                wandb_images.append(wandb.Image(img[si], boxes=boxes))
             # Clip boxes to image bounds
             clip_coords(pred, (height, width))
 
