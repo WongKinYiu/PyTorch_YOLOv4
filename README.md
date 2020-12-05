@@ -10,6 +10,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2020-12-03` - support imitation learning.
+* `2020-12-02` - support squeeze and excitation.
 * `2020-11-26` - support multi-class multi-anchor joint detection and embedding.
 * `2020-11-25` - support joint detection and embedding.
 * `2020-11-23` - support teacher-student learning.
