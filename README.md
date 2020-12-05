@@ -10,7 +10,17 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2020-12-03` - support imitation learning.
+* `2020-12-02` - support squeeze and excitation.
+* `2020-11-26` - support multi-class multi-anchor joint detection and embedding.
+* `2020-11-25` - support joint detection and embedding.
+* `2020-11-23` - support teacher-student learning.
+* `2020-11-17` - pytorch 1.7 compatibility. 
+* `2020-11-06` - support inference with initial weights. 
+* `2020-10-21` - fully supported by darknet. 
+* `2020-09-18` - design fine-tune methods. 
 * `2020-08-29` - support deformable kernel. 
+* `2020-08-25` - pytorch 1.6 compatibility.
 * `2020-08-24` - support channel last training/testing. 
 * `2020-08-16` - design CSPPRN. 
 * `2020-08-15` - design deeper model. [`csp-p6-mish`]()
@@ -70,6 +80,14 @@ python train.py --data coco.yaml --cfg yolov4l-mish.yaml --weights ''
 ```
 python test.py --img 672 --conf 0.001 --batch 32 --data coco.yaml --weights weights/yolov4l-mish.pt
 ```
+
+## Teacher-Student Learning
+
+| Model | Teacher | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| **YOLOv4**<sub>s-mish</sub> | - | 672 | 40.3% | 59.4% | 43.8% | 23.9% | 45.3% | 52.2% |
+| **YOLOv4**<sub>s-mish</sub> | **YOLOv4**<sub>l-mish</sub> | 672 | **40.9%** | **60.2%** | **44.6%** | **24.1%** | **46.1%** | **53.2%** |
+|  |  |  |  |  |  |
 
 ## Citation
 
