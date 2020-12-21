@@ -10,6 +10,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2020-12-18` - support non-local series self-attention blocks. [`gc`]() [`dnl`]()
+* `2020-12-16` - support down-sampling blocks in cspnet paper. [`down-c`]() [`down-d`]()
 * `2020-12-03` - support imitation learning.
 * `2020-12-02` - support squeeze and excitation.
 * `2020-11-26` - support multi-class multi-anchor joint detection and embedding.
