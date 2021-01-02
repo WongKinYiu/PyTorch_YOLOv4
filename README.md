@@ -60,7 +60,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv4**<sub>l-mish</sub> | 672 | 48.1% | 66.8% | 52.6% | 31.9% | 53.3% | 61.0% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4l-mish.yaml) | [weights](https://drive.google.com/file/d/1qzH5DhxUhjoQos3zRd8YFGItEAxWi32X/view?usp=sharing) |
 |  | 640 | 48.9% | 67.7% | 53.2% | 31.7% | 54.2% | 63.5% |  | [weights](https://drive.google.com/file/d/1dJc-W6ih37SDew7KPzDq9BF9TbICji5s/view?usp=sharing) |
 | **YOLOv4**<sub>x-mish</sub> | 672 | 49.8% | 68.4% | 54.4% | 32.7% | 55.3% | 63.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
-| *(temp)* | 640 | **50.5%** | **69.3%** | **54.8%** | **33.1%** | **55.6%** | **65.1%** |  | [weights](https://drive.google.com/file/d/1eDEM7LcE8B9MvbhVixxTvoMaKS8gW2-7/view?usp=sharing) |
+|  | 640 | **50.7%** | **69.4%** | **55.2%** | **34.5%** | **55.3%** | **65.4%** |  | [weights](https://drive.google.com/file/d/1eDEM7LcE8B9MvbhVixxTvoMaKS8gW2-7/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 
 ## Requirements
