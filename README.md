@@ -55,12 +55,13 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | yaml | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
 | **YOLOv4**<sub>s-mish</sub> | 672 | 40.3% | 59.4% | 43.8% | 23.9% | 45.3% | 52.2% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4s-mish.yaml) | [weights](https://drive.google.com/file/d/1Ku41qm7sLk3vRWI46MslbAMu9pxlqtnk/view?usp=sharing) |
-|  | 640 | 40.8% | 59.7% | 44.2% | 23.7% | 45.9% | 53.0% |  | [weights](https://drive.google.com/file/d/12nwMErZiQv607lAG6Mem1hXbVUdFxyR_/view?usp=sharing) |
+| (+BoF) | 640 | 40.8% | 59.7% | 44.2% | 23.7% | 45.9% | 53.0% |  | [weights](https://drive.google.com/file/d/12nwMErZiQv607lAG6Mem1hXbVUdFxyR_/view?usp=sharing) |
 | **YOLOv4**<sub>m-mish</sub> | 672 | 44.7% | 64.0% | 48.7% | 28.3% | 50.2% | 57.7% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4m-mish.yaml) | [weights](https://drive.google.com/file/d/1EqbLcdLxjigvYdLhl-YQtPl2qR2KP9iU/view?usp=sharing) |
+| (+BoF) | 640 | 45.6% | 64.8% | 49.7% | 28.0% | 51.0% | 59.5% |  | [weights](https://drive.google.com/file/d/1zhz_sr3D_JMf01scUiVrOkgM9shU1Sv2/view?usp=sharing) |
 | **YOLOv4**<sub>l-mish</sub> | 672 | 48.1% | 66.8% | 52.6% | 31.9% | 53.3% | 61.0% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4l-mish.yaml) | [weights](https://drive.google.com/file/d/1qzH5DhxUhjoQos3zRd8YFGItEAxWi32X/view?usp=sharing) |
-|  | 640 | 48.9% | 67.7% | 53.2% | 31.7% | 54.2% | 63.5% |  | [weights](https://drive.google.com/file/d/1dJc-W6ih37SDew7KPzDq9BF9TbICji5s/view?usp=sharing) |
+| (+BoF) | 640 | 48.9% | 67.7% | 53.2% | 31.7% | 54.2% | 63.5% |  | [weights](https://drive.google.com/file/d/1dJc-W6ih37SDew7KPzDq9BF9TbICji5s/view?usp=sharing) |
 | **YOLOv4**<sub>x-mish</sub> | 672 | 49.8% | 68.4% | 54.4% | 32.7% | 55.3% | 63.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
-|  | 640 | **50.7%** | **69.4%** | **55.2%** | **34.5%** | **55.3%** | **65.4%** |  | [weights](https://drive.google.com/file/d/1eDEM7LcE8B9MvbhVixxTvoMaKS8gW2-7/view?usp=sharing) |
+| (+BoF) | 640 | **50.7%** | **69.4%** | **55.2%** | **34.5%** | **55.3%** | **65.4%** |  | [weights](https://drive.google.com/file/d/1eDEM7LcE8B9MvbhVixxTvoMaKS8gW2-7/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 
 ## Requirements
@@ -81,14 +82,6 @@ python train.py --data coco.yaml --cfg yolov4l-mish.yaml --weights ''
 ```
 python test.py --img 672 --conf 0.001 --batch 32 --data coco.yaml --weights weights/yolov4l-mish.pt
 ```
-
-## Teacher-Student Learning
-
-| Model | Teacher | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> |
-| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-| **YOLOv4**<sub>s-mish</sub> | - | 672 | 40.3% | 59.4% | 43.8% | 23.9% | 45.3% | 52.2% |
-| **YOLOv4**<sub>s-mish</sub> | **YOLOv4**<sub>l-mish</sub> | 672 | **40.9%** | **60.2%** | **44.6%** | **24.1%** | **46.1%** | **53.2%** |
-|  |  |  |  |  |  |
 
 ## Citation
 
