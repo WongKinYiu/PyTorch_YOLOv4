@@ -10,6 +10,13 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2021-01-19` - support instance segmentation. [`mask-yolo`]()
+* `2021-01-17` - support anchor-free-based methods. [`center-yolo`]()
+* `2021-01-14` - support joint detection and classification.
+* `2020-01-02` - design new PRN and CSP-based models.
+* `2020-12-22` - support transfer learning.
+* `2020-12-18` - support non-local series self-attention blocks. [`gc`]() [`dnl`]()
+* `2020-12-16` - support down-sampling blocks in cspnet paper. [`down-c`]() [`down-d`]()
 * `2020-12-03` - support imitation learning.
 * `2020-12-02` - support squeeze and excitation.
 * `2020-11-26` - support multi-class multi-anchor joint detection and embedding.
@@ -59,7 +66,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv4**<sub>m-mish</sub> | 672 | 44.7% | 64.0% | 48.7% | 28.3% | 50.2% | 57.7% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4m-mish.yaml) | [weights](https://drive.google.com/file/d/1EqbLcdLxjigvYdLhl-YQtPl2qR2KP9iU/view?usp=sharing) |
 | (+BoF) | 640 | 45.6% | 64.8% | 49.7% | 28.0% | 51.0% | 59.5% |  | [weights](https://drive.google.com/file/d/1zhz_sr3D_JMf01scUiVrOkgM9shU1Sv2/view?usp=sharing) |
 | **YOLOv4**<sub>l-mish</sub> | 672 | 48.1% | 66.8% | 52.6% | 31.9% | 53.3% | 61.0% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4l-mish.yaml) | [weights](https://drive.google.com/file/d/1qzH5DhxUhjoQos3zRd8YFGItEAxWi32X/view?usp=sharing) |
-| (+BoF) | 640 | 48.9% | 67.7% | 53.2% | 31.7% | 54.2% | 63.5% |  | [weights](https://drive.google.com/file/d/1dJc-W6ih37SDew7KPzDq9BF9TbICji5s/view?usp=sharing) |
+| (+BoF) | 640 | 49.0% | 67.7% | 53.5% | 32.1% | 54.1% | 62.5% |  | [weights](https://drive.google.com/file/d/1dJc-W6ih37SDew7KPzDq9BF9TbICji5s/view?usp=sharing) |
 | **YOLOv4**<sub>x-mish</sub> | 672 | 49.8% | 68.4% | 54.4% | 32.7% | 55.3% | 63.6% | [yaml](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/u5/models/yolov4x-mish.yaml) | [weights](https://drive.google.com/file/d/1v3xhTxze44VHq_kO7WhATVIkUq0bSGvF/view?usp=sharing) |
 | (+BoF) | 640 | **50.7%** | **69.4%** | **55.2%** | **34.5%** | **55.3%** | **65.4%** |  | [weights](https://drive.google.com/file/d/1eDEM7LcE8B9MvbhVixxTvoMaKS8gW2-7/view?usp=sharing) |
 |  |  |  |  |  |  |  |
