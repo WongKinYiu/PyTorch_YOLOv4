@@ -10,6 +10,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2021-01-22` - support EIoU.
+* `2021-01-19` - support instance segmentation. [`mask-yolo`]()
 * `2021-01-17` - support anchor-free-based methods. [`center-yolo`]()
 * `2021-01-14` - support joint detection and classification.
 * `2020-01-02` - design new PRN and CSP-based models.
