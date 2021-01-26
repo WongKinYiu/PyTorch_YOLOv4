@@ -10,39 +10,43 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
-* `2021-01-22` - support EIoU.
+* `2021-01-26` - design mask objectness.
+* `2021-01-25` - design rotate augmentation.
+* `2021-01-23` - design collage augmentation.
+* `2021-01-22` - support [VoVNet](https://arxiv.org/abs/1904.09730), [VoVNetv2](https://arxiv.org/abs/1911.06667).
+* `2021-01-22` - support [EIoU](https://arxiv.org/abs/2101.08158).
 * `2021-01-19` - support instance segmentation. [`mask-yolo`]()
 * `2021-01-17` - support anchor-free-based methods. [`center-yolo`]()
-* `2021-01-14` - support joint detection and classification.
-* `2020-01-02` - design new PRN and CSP-based models.
+* `2021-01-14` - support joint detection and classification. [`classify-yolo`]()
+* `2020-01-02` - design new [PRN](https://github.com/WongKinYiu/PartialResidualNetworks) and [CSP](https://github.com/WongKinYiu/CrossStagePartialNetworks)-based models.
 * `2020-12-22` - support transfer learning.
-* `2020-12-18` - support non-local series self-attention blocks. [`gc`]() [`dnl`]()
-* `2020-12-16` - support down-sampling blocks in cspnet paper. [`down-c`]() [`down-d`]()
+* `2020-12-18` - support non-local series self-attention blocks. [`gc`](https://arxiv.org/abs/1904.11492) [`dnl`](https://arxiv.org/abs/2006.06668)
+* `2020-12-16` - support down-sampling blocks in cspnet paper. [`down-c`]() [`down-d`](https://arxiv.org/abs/1812.01187)
 * `2020-12-03` - support imitation learning.
-* `2020-12-02` - support squeeze and excitation.
+* `2020-12-02` - support [squeeze and excitation](https://arxiv.org/abs/1709.01507).
 * `2020-11-26` - support multi-class multi-anchor joint detection and embedding.
-* `2020-11-25` - support joint detection and embedding.
+* `2020-11-25` - support [joint detection and embedding](https://arxiv.org/abs/1909.12605). [`track-yolo`]()
 * `2020-11-23` - support teacher-student learning.
 * `2020-11-17` - pytorch 1.7 compatibility. 
 * `2020-11-06` - support inference with initial weights. 
 * `2020-10-21` - fully supported by darknet. 
 * `2020-09-18` - design fine-tune methods. 
-* `2020-08-29` - support deformable kernel. 
+* `2020-08-29` - support [deformable kernel](https://arxiv.org/abs/1910.02940).
 * `2020-08-25` - pytorch 1.6 compatibility.
 * `2020-08-24` - support channel last training/testing. 
 * `2020-08-16` - design CSPPRN. 
 * `2020-08-15` - design deeper model. [`csp-p6-mish`]()
-* `2020-08-11` - support HarDNet. [`hard39-pacsp`]() [`hard68-pacsp`]() [`hard85-pacsp`]()
+* `2020-08-11` - support [HarDNet](https://arxiv.org/abs/1909.00948). [`hard39-pacsp`]() [`hard68-pacsp`]() [`hard85-pacsp`]()
 * `2020-08-10` - add DDP training.
-* `2020-08-06` - support DCN, DCNv2. [`yolov4-dcn`]()
+* `2020-08-06` - support [DCN](https://arxiv.org/abs/1703.06211), [DCNv2](https://arxiv.org/abs/1811.11168). [`yolov4-dcn`]()
 * `2020-08-01` - add pytorch hub.
-* `2020-07-31` - support ResNet, ResNeXt, CSPResNet, CSPResNeXt. [`r50-pacsp`]() [`x50-pacsp`]() [`cspr50-pacsp`]() [`cspx50-pacsp`]()
-* `2020-07-28` - support SAM. [`yolov4-pacsp-sam`]()
+* `2020-07-31` - support [ResNet](https://arxiv.org/abs/1512.03385), [ResNeXt](https://arxiv.org/abs/1611.05431), [CSPResNet](https://github.com/WongKinYiu/CrossStagePartialNetworks), [CSPResNeXt](https://github.com/WongKinYiu/CrossStagePartialNetworks). [`r50-pacsp`]() [`x50-pacsp`]() [`cspr50-pacsp`]() [`cspx50-pacsp`]()
+* `2020-07-28` - support [SAM](https://arxiv.org/abs/2004.10934). [`yolov4-pacsp-sam`]()
 * `2020-07-24` - update api.
 * `2020-07-23` - support CUDA accelerated Mish activation function.
 * `2020-07-19` - support and training tiny YOLOv4. [`yolov4-tiny`]()
 * `2020-07-15` - design and training conditional YOLOv4. [`yolov4-pacsp-conditional`]()
-* `2020-07-13` - support MixUp data augmentation.
+* `2020-07-13` - support [MixUp](https://arxiv.org/abs/1710.09412) data augmentation.
 * `2020-07-03` - design new stem layers.
 * `2020-06-16` - support floating16 of GPU inference.
 * `2020-06-14` - convert .pt to .weights for darknet fine-tuning.
@@ -53,8 +57,8 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 * `2020-05-30` - update FPN neck to CSPFPN. [`yolov4-yocsp`]() [`yolov4-yocsp-mish`]()
 * `2020-05-24` - update neck of YOLOv4 to CSPPAN. [`yolov4-pacsp`]() [`yolov4-pacsp-mish`]()
 * `2020-05-15` - training YOLOv4 with Mish activation function. [`yolov4-yospp-mish`]() [`yolov4-paspp-mish`]()
-* `2020-05-08` - design and training YOLOv4 with FPN neck. [`yolov4-yospp`]()
-* `2020-05-01` - training YOLOv4 with Leaky activation function using PyTorch. [`yolov4-paspp`]()
+* `2020-05-08` - design and training YOLOv4 with [FPN](https://arxiv.org/abs/1612.03144) neck. [`yolov4-yospp`]()
+* `2020-05-01` - training YOLOv4 with Leaky activation function using PyTorch. [`yolov4-paspp`]() [`PAN`](https://arxiv.org/abs/1803.01534)
 
 </details>
 
