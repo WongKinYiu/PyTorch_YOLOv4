@@ -252,11 +252,10 @@ class YOLOLayer(nn.Module):
             grid = self.grid.repeat(1, self.na, 1, 1, 1).view(m, 2)
             anchor_wh = self.anchor_wh.repeat(1, 1, self.nx, self.ny, 1).view(m, 2) * ng
 
-            p = p.view(m, self.no)
-            xy = torch.sigmoid(p[:, 0:2]) + grid  # x, y
-            wh = torch.exp(p[:, 2:4]) * anchor_wh  # width, height
-            p_cls = torch.sigmoid(p[:, 4:5]) if self.nc == 1 else \
-                torch.sigmoid(p[:, 5:self.no]) * torch.sigmoid(p[:, 4:5])  # conf
+            io = p.sigmoid().view(m, self.no)
+            xy = io[:, 0:2] * 2. - 0.5 + grid  # x, y
+            wh = (io[:, 2:4] * 2) ** 2 * anchor_wh  # width, height
+            p_cls = io[:, 4:5] if self.nc == 1 else io[:, 5:self.no] * io[:, 4:5]  # conf
             return p_cls, xy * ng, wh
 
         else:  # inference
