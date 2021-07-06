@@ -48,7 +48,6 @@ def torch_distributed_zero_first(local_rank: int):
 def init_seeds(seed=0):
     random.seed(seed)
     np.random.seed(seed)
-    init_seeds(seed=seed)
 
 
 def get_latest_run(search_dir='./runs'):
