@@ -51,6 +51,7 @@ def train(hyp, opt, device, tb_writer=None):
     init_seeds(2 + rank)
     with open(opt.data) as f:
         data_dict = yaml.load(f, Loader=yaml.FullLoader)  # model dict
+        # data_dict = yaml.safe_load(f)  # model dict
     train_path = data_dict['train']
     test_path = data_dict['val']
     nc, names = (1, ['item']) if opt.single_cls else (int(data_dict['nc']), data_dict['names'])  # number classes, names
@@ -400,8 +401,8 @@ if __name__ == '__main__':
         if last and not opt.weights:
             print(f'Resuming training from {last}')
         opt.weights = last if opt.resume and not opt.weights else opt.weights
-    if opt.local_rank == -1 or ("RANK" in os.environ and os.environ["RANK"] == "0"):
-        check_git_status()
+    # if opt.local_rank == -1 or ("RANK" in os.environ and os.environ["RANK"] == "0"):
+    #     check_git_status()
 
     opt.hyp = opt.hyp or ('data/hyp.scratch.yaml')
     opt.data, opt.cfg, opt.hyp = check_file(opt.data), check_file(opt.cfg), check_file(opt.hyp)  # check files
