@@ -5,9 +5,6 @@ from utils.general import *
 import torch
 from torch import nn
 
-from mish_cuda import MishCuda as Mish
-
-
 def make_divisible(v, divisor):
     # Function ensures all layers have a channel number that is divisible by 8
     # https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet/mobilenet.py
@@ -144,18 +141,28 @@ class SwishImplementation(torch.autograd.Function):
         return grad_output * (sx * (1 + x * (1 - sx)))
 
 
-class MishImplementation(torch.autograd.Function):
+class Mish(nn.Module):
     @staticmethod
-    def forward(ctx, x):
-        ctx.save_for_backward(x)
-        return x.mul(torch.tanh(F.softplus(x)))  # x * tanh(ln(1 + exp(x)))
+    def forward(x):
+        return x * F.softplus(x).tanh()
 
-    @staticmethod
-    def backward(ctx, grad_output):
-        x = ctx.saved_tensors[0]
-        sx = torch.sigmoid(x)
-        fx = F.softplus(x).tanh()
-        return grad_output * (fx + x * sx * (1 - fx * fx))
+
+class MemoryEfficientMish(nn.Module):
+    class F(torch.autograd.Function):
+        @staticmethod
+        def forward(ctx, x):
+            ctx.save_for_backward(x)
+            return x.mul(torch.tanh(F.softplus(x)))  # x * tanh(ln(1 + exp(x)))
+
+        @staticmethod
+        def backward(ctx, grad_output):
+            x = ctx.saved_tensors[0]
+            sx = torch.sigmoid(x)
+            fx = F.softplus(x).tanh()
+            return grad_output * (fx + x * sx * (1 - fx * fx))
+
+    def forward(self, x):
+        return self.F.apply(x)
 
 
 class MemoryEfficientSwish(nn.Module):
@@ -163,9 +170,6 @@ class MemoryEfficientSwish(nn.Module):
         return SwishImplementation.apply(x)
 
 
-class MemoryEfficientMish(nn.Module):
-    def forward(self, x):
-        return MishImplementation.apply(x)
 
 
 class Swish(nn.Module):
