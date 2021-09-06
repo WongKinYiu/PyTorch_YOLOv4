@@ -10,6 +10,21 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
+* `2021-08-21` - support simOTA in [yolox](https://arxiv.org/abs/2107.08430).
+* `2021-08-14` - design approximation-based methods.
+* `2021-07-27` - design new decoders.
+* `2021-07-22` - support 1) decoupled head, 2) anchor-free, and 3) multi positives in [yolox](https://arxiv.org/abs/2107.08430).
+* `2021-07-10` - design distribution-based implicit modeling.
+* `2021-07-06` - support outlooker attention. [`volo`](https://arxiv.org/abs/2106.13112)
+* `2021-07-06` - design self emsemble training method.
+* `2021-06-23` - design cross multi-stage correlation module.
+* `2021-06-18` - design cross stage cross correlation module.
+* `2021-06-17` - support cross correlation module. [`ccn`](https://arxiv.org/abs/2010.12138)
+* `2021-06-17` - support attention modules. [`cbam`](https://arxiv.org/abs/1807.06521) [`saan`](https://arxiv.org/abs/2010.12138)
+* `2021-04-20` - support swin transformer. [`swin`](https://arxiv.org/abs/2103.14030)
+* `2021-03-16` - design new stem layers.
+* `2021-03-13` - design implicit modeling. [`nn`]() [`mf`]() [`lc`]() 
+* `2021-01-26` - support vision transformer. [`tr`](https://arxiv.org/abs/2010.11929)
 * `2021-01-26` - design mask objectness.
 * `2021-01-25` - design rotate augmentation.
 * `2021-01-23` - design collage augmentation.
