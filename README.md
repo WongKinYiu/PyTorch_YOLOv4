@@ -79,6 +79,33 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ## Pretrained Models & Comparison
 
+
+| Model | Test Size | AP<sup>test</sup> | AP<sub>50</sub><sup>test</sup> | AP<sub>75</sub><sup>test</sup> | AP<sub>S</sub><sup>test</sup> | AP<sub>M</sub><sup>test</sup> | AP<sub>L</sub><sup>test</sup> | cfg | weights |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
+| **YOLOv4** | 640 | 48.9% | 67.4% | 53.3% | 29.6% | 53.4% | 60.9% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights]() |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp-s</sub> | 640 | 36.8% | 55.6% | 39.7% | 19.0% | 40.6% | 46.9% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp</sub> | 640 | 47.8% | 66.3% | 52.1% | 28.5% | 52.3% | 60.1% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-x</sub> | 640 | **50.1%** | **68.4%** | **54.7%** | **30.8%** | **54.7%** | **62.7%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x.cfg) | [weights]() |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp-s-mish</sub> | 640 | 38.9% | 57.5% | 42.3% | 20.8% | 43.0% | 49.2% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s-mish.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-mish</sub> | 640 | 49.3% | 67.6% | 53.8% | 29.9% | 53.9% | 61.7% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-mish.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-x-mish</sub> | 640 | 51.4% | 69.5% | 56.0% | 32.2% | 55.8% | 64.3% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x-mish.cfg) | [weights]() |
+
+| Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | cfg | weights |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
+| **YOLOv4** | 640 | 48.4% | 67.1% | 52.9% | 31.7% | 53.8% | 62.0% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights]() |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp-s</sub> | 640 | 37.0% | 55.7% | 40.0% | 20.2% | 41.6% | 48.4% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp</sub> | 640 | 47.7% | 66.4% | 52.0% | 32.3% | 53.0% | 61.7% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-x</sub> | 640 | **50.0%** | **68.3%** | **54.5%** | **33.9%** | **55.4%** | **63.7%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x.cfg) | [weights]() |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp-s-mish</sub> | 640 | 38.8% | 57.8% | 42.0% | 21.6% | 43.7% | 51.1% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s-mish.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-mish</sub> | 640 | 48.8% | 67.2% | 53.4% | 31.5% | 54.4% | 62.2% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-mish.cfg) | [weights]() |
+| **YOLOv4**<sub>pacsp-x-mish</sub> | 640 | 51.2% | 69.4% | 55.9% | 35.0% | 56.5% | 65.0% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x-mish.cfg) | [weights]() |
+
+<details><summary> <b>archive</b> </summary>
+
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | cfg | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
 | **YOLOv4** | 672 | 47.7% | 66.7% | 52.1% | 30.5% | 52.6% | 61.4% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights](https://drive.google.com/file/d/137U-oLekAu-J-fe0E_seTblVxnU3tlNC/view?usp=sharing) |
@@ -94,9 +121,36 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv4**<sub>pacsp-x-mish</sub> | 672 | 50.0% | 68.5% | 54.4% | 32.9% | 54.9% | 64.0% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x-mish.cfg) | [weights](https://drive.google.com/file/d/1GGCrokkRZ06CZ5MUCVokbX1FF2e1DbPF/view?usp=sharing) |
 | (+BoF) | 640 | **51.0%** | **69.7%** | **55.5%** | **33.3%** | **56.2%** | **65.5%** |  | [weights](https://drive.google.com/file/d/1lVmSqItSKywg6yk1qiCvgOYw55O03Qgj/view?usp=sharing) |
 |  |  |  |  |  |  |  |
+  
+</details>
 
 ## Requirements
 
+docker (recommanded):
+```
+# create the docker container, you can change the share memory size if you have more.
+nvidia-docker run --name yolov4 -it -v your_coco_path/:/coco/ -v your_code_path/:/yolo --shm-size=64g nvcr.io/nvidia/pytorch:20.11-py3
+
+# apt install required packages
+apt update
+apt install -y zip htop screen libgl1-mesa-glx
+
+# pip install required packages
+pip install seaborn thop
+
+# install mish-cuda if you want to use mish activation
+# https://github.com/thomasbrandon/mish-cuda
+# https://github.com/JunnYu/mish-cuda
+cd /
+git clone https://github.com/JunnYu/mish-cuda
+cd mish-cuda
+python setup.py build install
+
+# go to code folder
+cd /yolo
+```
+
+local:
 ```
 pip install -r requirements.txt
 ```
