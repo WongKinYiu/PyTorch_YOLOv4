@@ -10,14 +10,14 @@ import torch
 import torch.backends.cudnn as cudnn
 from numpy import random
 
-from models.experimental import attempt_load
+from utils.google_utils import attempt_load
 from utils.datasets import LoadStreams, LoadImages
 from utils.general import (
-    check_img_size, non_max_suppression, apply_classifier, scale_coords, xyxy2xywh, plot_one_box, strip_optimizer)
+    check_img_size, non_max_suppression, apply_classifier, scale_coords, xyxy2xywh, strip_optimizer)
+from utils.plots import plot_one_box
 from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 from models.models import *
-from models.experimental import *
 from utils.datasets import *
 from utils.general import *
 
@@ -43,10 +43,10 @@ def detect(save_img=False):
     model = Darknet(cfg, imgsz).cuda()
     try:
         model.load_state_dict(torch.load(weights[0], map_location=device)['model'])
+        #model = attempt_load(weights, map_location=device)  # load FP32 model
+        #imgsz = check_img_size(imgsz, s=model.stride.max())  # check img_size
     except:
         load_darknet_weights(model, weights[0])
-    #model = attempt_load(weights, map_location=device)  # load FP32 model
-    #imgsz = check_img_size(imgsz, s=model.stride.max())  # check img_size
     model.to(device).eval()
     if half:
         model.half()  # to FP16
@@ -66,7 +66,7 @@ def detect(save_img=False):
         dataset = LoadStreams(source, img_size=imgsz)
     else:
         save_img = True
-        dataset = LoadImages(source, img_size=imgsz)
+        dataset = LoadImages(source, img_size=imgsz, auto_size=64)
 
     # Get names and colors
     names = load_classes(names)
@@ -175,7 +175,7 @@ if __name__ == '__main__':
     parser.add_argument('--agnostic-nms', action='store_true', help='class-agnostic NMS')
     parser.add_argument('--augment', action='store_true', help='augmented inference')
     parser.add_argument('--update', action='store_true', help='update all models')
-    parser.add_argument('--cfg', type=str, default='cfg/yolov4.cfg', help='*.cfg path')
+    parser.add_argument('--cfg', type=str, default='models/yolov4.cfg', help='*.cfg path')
     parser.add_argument('--names', type=str, default='data/coco.names', help='*.cfg path')
     opt = parser.parse_args()
     print(opt)
