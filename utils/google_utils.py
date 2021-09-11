@@ -7,6 +7,7 @@ import time
 from pathlib import Path
 
 import torch
+import torch.nn as nn
 
 
 def gsutil_getsize(url=''):
@@ -92,6 +93,22 @@ def get_token(cookie="./cookie"):
                 return line.split()[-1]
     return ""
 
+
+class Ensemble(nn.ModuleList):
+    # Ensemble of models
+    def __init__(self):
+        super(Ensemble, self).__init__()
+
+    def forward(self, x, augment=False):
+        y = []
+        for module in self:
+            y.append(module(x, augment)[0])
+        # y = torch.stack(y).max(0)[0]  # max ensemble
+        # y = torch.cat(y, 1)  # nms ensemble
+        y = torch.stack(y).mean(0)  # mean ensemble
+        return y, None  # inference, train output
+    
+    
 # def upload_blob(bucket_name, source_file_name, destination_blob_name):
 #     # Uploads a file to a bucket
 #     # https://cloud.google.com/storage/docs/uploading-objects#storage-upload-object-python
