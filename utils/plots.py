@@ -137,11 +137,14 @@ def plot_images(images, targets, paths=None, fname='images.jpg', names=None, max
     for i, img in enumerate(images):
         if i == max_subplots:  # if last batch has fewer images than we expect
             break
-
         block_x = int(w * (i // ns))
         block_y = int(h * (i % ns))
 
         img = img.transpose(1, 2, 0)
+        #IF Image has 4 channels convert to plot
+        if img.shape[2] == 4:
+            img = cv2.cvtColor(img, cv2.COLOR_BGRA2RGB)
+
         if scale_factor < 1:
             img = cv2.resize(img, (w, h))
 
