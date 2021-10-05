@@ -11,14 +11,13 @@ def create_modules(module_defs, img_size, cfg):
 
     img_size = [img_size] * 2 if isinstance(img_size, int) else img_size  # expand if necessary
     _ = module_defs.pop(0)  # cfg training hyperparams (unused)
-    output_filters = [3]  # input channels
+    output_filters = [_["channels"]]  # input channels
     module_list = nn.ModuleList()
     routs = []  # list of layers which rout to deeper layers
     yolo_index = -1
 
     for i, mdef in enumerate(module_defs):
         modules = nn.Sequential()
-
         if mdef['type'] == 'convolutional':
             bn = mdef['batch_normalize']
             filters = mdef['filters']
@@ -90,7 +89,7 @@ def create_modules(module_defs, img_size, cfg):
                 modules.add_module('activation', Mish())
             elif mdef['activation'] == 'silu':
                 modules.add_module('activation', nn.SiLU())
-                
+
         elif mdef['type'] == 'dropout':
             p = mdef['probability']
             modules = nn.Dropout(p)
@@ -208,7 +207,7 @@ def create_modules(module_defs, img_size, cfg):
                 bias.data[:, 4] += math.log(8 / (640 / stride[yolo_index]) ** 2)  # obj (8 objects per 640 image)
                 bias.data[:, 5:] += math.log(0.6 / (modules.nc - 0.99))  # cls (sigmoid(p) = 1/nc)
                 module_list[j][0].bias = torch.nn.Parameter(bias_, requires_grad=bias_.requires_grad)
-                
+
                 #j = [-2, -5, -8]
                 #for sj in j:
                 #    bias_ = module_list[sj][0].bias
@@ -459,7 +458,6 @@ class Darknet(nn.Module):
         self.info(verbose) if not ONNX_EXPORT else None  # print model description
 
     def forward(self, x, augment=False, verbose=False):
-
         if not augment:
             return self.forward_once(x)
         else:  # Augment images (inference and test only) https://github.com/ultralytics/yolov3/issues/931
@@ -518,8 +516,6 @@ class Darknet(nn.Module):
             elif name == 'JDELayer':
                 yolo_out.append(module(x, out))
             else:  # run module directly, i.e. mtype = 'convolutional', 'upsample', 'maxpool', 'batchnorm2d' etc.
-                #print(module)
-                #print(x.shape)
                 x = module(x)
 
             out.append(x if self.routs[i] else [])
