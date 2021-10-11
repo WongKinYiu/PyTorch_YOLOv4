@@ -21,7 +21,7 @@ def parse_model_cfg(path):
             mdefs[-1]['type'] = line[1:-1].rstrip()
             if mdefs[-1]['type'] == 'convolutional':
                 mdefs[-1]['batch_normalize'] = 0  # pre-populate with zeros (may be overwritten later)
-        
+
         else:
             key, val = line.split("=")
             key = key.rstrip()
