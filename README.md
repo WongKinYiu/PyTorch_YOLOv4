@@ -82,7 +82,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 | Model | Test Size | AP<sup>test</sup> | AP<sub>50</sub><sup>test</sup> | AP<sub>75</sub><sup>test</sup> | AP<sub>S</sub><sup>test</sup> | AP<sub>M</sub><sup>test</sup> | AP<sub>L</sub><sup>test</sup> | cfg | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **YOLOv4** | 640 | 48.9% | 67.4% | 53.3% | 29.6% | 53.4% | 60.9% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights](https://drive.google.com/file/d/14zPRaYxMOe7hXi6N-Vs_QbWs6ue_CZPd/view?usp=sharing) |
+| **YOLOv4** | 640 | 50.0% | 68.4% | 54.7% | 30.5% | 54.3% | 63.3% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights](https://drive.google.com/file/d/1TSvLHH48eJJk7Glr5p2lscVet2jCazhi/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 | **YOLOv4**<sub>pacsp-s</sub> | 640 | 36.8% | 55.6% | 39.7% | 19.0% | 40.6% | 46.9% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s.cfg) | [weights](https://drive.google.com/file/d/1PiS9pF4tsydPN4-vMjiJPHjIOJMeRwWS/view?usp=sharing) |
 | **YOLOv4**<sub>pacsp</sub> | 640 | 47.8% | 66.3% | 52.1% | 28.5% | 52.3% | 60.1% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp.cfg) | [weights](https://drive.google.com/file/d/1C7xwfYzPF4dKFAmDNCetdTCB_cPvsuwf/view?usp=sharing) |
@@ -94,8 +94,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | cfg | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
-| **YOLOv4** | 640 | 48.4% | 67.1% | 52.9% | 31.7% | 53.8% | 62.0% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights](https://drive.google.com/file/d/14zPRaYxMOe7hXi6N-Vs_QbWs6ue_CZPd/view?usp=sharing) |
-| **YOLOv4*** | 640 | 49.7% | 68.2% | 54.3% | 32.9% | 54.8% | 63.7% |
+| **YOLOv4** | 640 | 49.7% | 68.2% | 54.3% | 32.9% | 54.8% | 63.7% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights](https://drive.google.com/file/d/1TSvLHH48eJJk7Glr5p2lscVet2jCazhi/view?usp=sharing) |
 |  |  |  |  |  |  |  |
 | **YOLOv4**<sub>pacsp-s</sub> | 640 | 37.0% | 55.7% | 40.0% | 20.2% | 41.6% | 48.4% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s.cfg) | [weights](https://drive.google.com/file/d/1PiS9pF4tsydPN4-vMjiJPHjIOJMeRwWS/view?usp=sharing) |
 | **YOLOv4**<sub>pacsp-s</sub>* | 640 | 38.9% | 57.7% | 42.2% | 21.9% | 43.3% | 51.9% |
@@ -112,6 +111,18 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 | **YOLOv4**<sub>pacsp-x-mish</sub>* | 640 | 52.6% | 71.0% | 57.2% | 36.4% | 57.3% | 67.6% |
 
 <details><summary> <b>archive</b> </summary>
+
+| Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | cfg | weights |
+| :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
+| **YOLOv4** | 640 | 48.4% | 67.1% | 52.9% | 31.7% | 53.8% | 62.0% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4.cfg) | [weights](https://drive.google.com/file/d/14zPRaYxMOe7hXi6N-Vs_QbWs6ue_CZPd/view?usp=sharing) |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp-s</sub> | 640 | 37.0% | 55.7% | 40.0% | 20.2% | 41.6% | 48.4% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s.cfg) | [weights](https://drive.google.com/file/d/1PiS9pF4tsydPN4-vMjiJPHjIOJMeRwWS/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp</sub> | 640 | 47.7% | 66.4% | 52.0% | 32.3% | 53.0% | 61.7% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp.cfg) | [weights](https://drive.google.com/file/d/1C7xwfYzPF4dKFAmDNCetdTCB_cPvsuwf/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-x</sub> | 640 | **50.0%** | **68.3%** | **54.5%** | **33.9%** | **55.4%** | **63.7%** | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x.cfg) | [weights](https://drive.google.com/file/d/1kWzJk5DJNlW9Xf2xR89OfmrEoeY9Szzj/view?usp=sharing) |
+|  |  |  |  |  |  |  |
+| **YOLOv4**<sub>pacsp-s-mish</sub> | 640 | 38.8% | 57.8% | 42.0% | 21.6% | 43.7% | 51.1% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-s-mish.cfg) | [weights](https://drive.google.com/file/d/1OiDhQqYH23GrP6f5vU2j_DvA8PqL0pcF/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-mish</sub> | 640 | 48.8% | 67.2% | 53.4% | 31.5% | 54.4% | 62.2% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-mish.cfg) | [weights](https://drive.google.com/file/d/1mk9mkM0_B9e_QgPxF6pBIB6uXDxZENsk/view?usp=sharing) |
+| **YOLOv4**<sub>pacsp-x-mish</sub> | 640 | 51.2% | 69.4% | 55.9% | 35.0% | 56.5% | 65.0% | [cfg](https://github.com/WongKinYiu/PyTorch_YOLOv4/blob/master/cfg/yolov4-pacsp-x-mish.cfg) | [weights](https://drive.google.com/file/d/1kZee29alFFnm1rlJieAyHzB3Niywew_0/view?usp=sharing) |
 
 | Model | Test Size | AP<sup>val</sup> | AP<sub>50</sub><sup>val</sup> | AP<sub>75</sub><sup>val</sup> | AP<sub>S</sub><sup>val</sup> | AP<sub>M</sub><sup>val</sup> | AP<sub>L</sub><sup>val</sup> | cfg | weights |
 | :-- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | 
