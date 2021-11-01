@@ -10,7 +10,17 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 <details><summary> <b>Expand</b> </summary>
 
-* `2021-08-21` - support simOTA in [yolox](https://arxiv.org/abs/2107.08430).
+* `2021-10-31` - support [RS loss](https://arxiv.org/abs/2107.11669), [aLRP loss](https://arxiv.org/abs/2009.13592), [AP loss](https://arxiv.org/abs/2008.07294).
+* `2021-10-30` - support [alpha IoU](https://arxiv.org/abs/2110.13675).
+* `2021-10-20` - design resolution calibration methods.
+* `2021-10-15` - support joint detection, instance segmentation, and semantic segmentation. [`seg-yolo`]()
+* `2021-10-13` - design ratio yolo.
+* `2021-09-22` - pytorch 1.9 compatibility.
+* `2021-09-21` - support [DIM](https://arxiv.org/abs/1808.06670).
+* `2021-09-16` - support [Dynamic Head](https://arxiv.org/abs/2106.08322).
+* `2021-08-28` - design domain adaptive training.
+* `2021-08-22` - design re-balance models.
+* `2021-08-21` - support [simOTA](https://arxiv.org/abs/2107.08430).
 * `2021-08-14` - design approximation-based methods.
 * `2021-07-27` - design new decoders.
 * `2021-07-22` - support 1) decoupled head, 2) anchor-free, and 3) multi positives in [yolox](https://arxiv.org/abs/2107.08430).
