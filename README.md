@@ -148,7 +148,7 @@ This is PyTorch implementation of [YOLOv4](https://github.com/AlexeyAB/darknet) 
 
 ## Requirements
 
-docker (recommanded):
+docker (recommended):
 ```
 # create the docker container, you can change the share memory size if you have more.
 nvidia-docker run --name yolov4 -it -v your_coco_path/:/coco/ -v your_code_path/:/yolo --shm-size=64g nvcr.io/nvidia/pytorch:20.11-py3
